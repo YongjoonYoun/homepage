@@ -37,6 +37,6 @@ title: Yongjoon Youn
 
 I am currently a Ph.D. student in Economics at the Ohio State University. I was a research associate at National University of Singapore (NUS) for 2 years before joining the OSU. 
 
-My primary research interests lie in the intersection between economics and population aging. Facing unprecedented changes generating vicious cycles in our society arising from population aging, I see it as our task as economists to contribute fruitfully to the public debate about these pressing economic issues of today to be part of the solution. 
+My primary research interests lie in the intersection between economics and population aging. Facing unprecedented changes generating vicious cycles in our society arising from population aging, I see it as our task as economists to contribute fruitfully to the public debate about these pressing economic issues of today to be a part of the solution. 
 
 {{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/CV.pdf" "newtab" >}}CV{{< /staticref >}}.
