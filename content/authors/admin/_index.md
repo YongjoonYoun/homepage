@@ -32,6 +32,9 @@ social:
 - icon: github
   icon_pack: fab
   link: https://github.com/yongjoonyoun
+- icon: linkedin
+  icon_pack: fab
+  link: https://www.linkedin.com/in/yongjoon-youn-82a713160/
 superuser: true
 title: Yongjoon Youn
 ---
