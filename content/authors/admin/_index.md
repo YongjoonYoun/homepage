@@ -2,6 +2,9 @@
 bio: My research interests include economics of population aging, behavioral decision making, and applied micro.
 education:
   courses:
+  - course: PhD in Economics
+    institution: The Ohio State University
+    year: 2027 (expected)
   - course: MSc in Economics
     institution: Barcelona School of Economics
     year: 2020
