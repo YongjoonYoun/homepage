@@ -1,5 +1,5 @@
 ---
-bio: My research interests include behavioral, applied micro, macro, and population economics.
+bio: My research interests include economics of population aging, behavioral decision making, and applied micro.
 education:
   courses:
   - course: MSc in Economics
@@ -11,8 +11,9 @@ education:
 email: ""
 highlight_name: true
 interests:
+- Economics of population aging 
 - Behavioral/Applied Microeconomics
-- Population and Household Economics
+- Household Economics
 - Macroeconomics
 organizations:
 - name: The Ohio State University
