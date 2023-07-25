@@ -1,5 +1,5 @@
 ---
-bio: My research interests include economics of population aging, behavioral decision making, and applied micro.
+bio: M
 education:
   courses:
   - course: PhD in Economics
@@ -14,10 +14,10 @@ education:
 email: ""
 highlight_name: true
 interests:
+- Labor / Applied microeconomics
 - Economics of population aging 
-- Behavioral/Applied Microeconomics
-- Household Economics
-- Macroeconomics
+
+
 organizations:
 - name: The Ohio State University
   url: https://www.osu.edu/
@@ -42,8 +42,10 @@ superuser: true
 title: Yongjoon Youn
 ---
 
-I am currently a Ph.D. student in Economics at the Ohio State University. I was a research associate at National University of Singapore (NUS) for 2 years before joining the OSU. 
+I am a PhD student in Economics at the Ohio State University (OSU). 
 
-My primary research interests lie in the intersection between economics and population aging. Facing unprecedented changes generating vicious cycles in our society arising from population aging, I see it as our task as economists to contribute fruitfully to the public debate about these pressing economic issues of today to be a part of the solution. 
+Before joining the OSU, I was a research associate at National University of Singapore (NUS) for 2 years. 
+
+My primary research interests are Labor economics and the intersection between economics and population aging.
 
 {{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/CV.pdf" "newtab" >}}CV{{< /staticref >}}.
