@@ -1,5 +1,5 @@
 ---
-bio: M
+bio:
 education:
   courses:
   - course: PhD in Economics
