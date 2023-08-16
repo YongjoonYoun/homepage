@@ -14,8 +14,8 @@ education:
 email: ""
 highlight_name: true
 interests:
-- Labor / Applied microeconomics
-- Economics of population aging 
+- Labor / Applied Microeconomics
+- Economics of Population Aging 
 
 
 organizations:
@@ -39,13 +39,13 @@ social:
   icon_pack: fab
   link: https://www.linkedin.com/in/yongjoon-youn-82a713160/
 superuser: true
-title: Yongjoon Youn
+title: Harrison Yongjoon Youn
 ---
 
 I am a PhD student in Economics at the Ohio State University (OSU). 
 
 Before joining the OSU, I was a research associate at National University of Singapore (NUS) for 2 years. 
 
-My primary research interests are Labor economics and the intersection between economics and population aging.
+My primary research interests are labor economics and the intersection between economics and population aging.
 
 {{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/CV.pdf" "newtab" >}}CV{{< /staticref >}}.
