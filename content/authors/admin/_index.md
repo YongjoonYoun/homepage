@@ -37,7 +37,7 @@ social:
   link: https://github.com/yongjoonyoun
 - icon: linkedin
   icon_pack: fab
-  link: https://www.linkedin.com/in/yongjoon-youn-82a713160/
+  link: https://www.linkedin.com/in/harrison-yongjoon-youn-82a713160/
 superuser: true
 title: Harrison Yongjoon Youn
 ---
