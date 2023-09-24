@@ -16,7 +16,7 @@ highlight_name: true
 interests:
 - Labor Economics
 - Economics of Population Aging 
-- Survey Data / Measurement
+- Measurement
 
 organizations:
 - name: The Ohio State University
