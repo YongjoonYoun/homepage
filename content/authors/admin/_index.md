@@ -14,7 +14,7 @@ education:
 email: ""
 highlight_name: true
 interests:
-- Labor / Applied Microeconomics
+- Labor Economics
 - Economics of Population Aging 
 - Survey Data / Measurement
 
