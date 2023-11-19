@@ -48,6 +48,8 @@ Before joining the OSU, I was a research associate at National University of Sin
 
 My primary research interests are labor economics and the intersection between economics and population aging. 
 
+I am currently working on how inter-vivos family transfers dynamically response to unconditional public transfers. Both upstream and downstream transfers are involved with dynamic life-cycle profiles, such as consumption, saving, human capital investment, birth outcomes, living arrangement and etc.  
+
 My recently published paper questions whether surveyed data consistently measures subjectively valued answers from different individuals and investigates the methods of consistent measurement of survey data. I am currently working on the social security decision-making of the old and family formation decisions of the young.
 
 {{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/CV.pdf" "newtab" >}}CV{{< /staticref >}}.
