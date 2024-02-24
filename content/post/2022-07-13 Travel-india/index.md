@@ -20,7 +20,7 @@ title: Motivation to be an economist
 
 About a decade ago, I embarked on a backpacking adventure through India, seeking adventure and cultural immersion. Little did I know, this journey would ignite a profound realization about the critical role economics plays in shaping our world.
 
-During my travels, I found myself in Mumbai's bustling Dhobi Ghat, a mesmerizing labyrinth where generations of workers, known as Dhobi Wallahs, toiled tirelessly in laundry services. Amidst the vibrant chaos of this community, I couldn't help but notice the glaring economic disparities that permeated daily life.
+During my travel, I found myself in Mumbai's bustling Dhobi Ghat, a mesmerizing labyrinth where generations of workers, known as Dhobi Wallahs, toiled tirelessly in laundry services. Amidst the vibrant chaos of this community, I couldn't help but notice the glaring economic disparities that permeated daily life.
 
 Living amongst communities earning below-average wages, I was struck by the resilience of individuals trapped in cycles of poverty despite their relentless hard work. Conversely, I witnessed others living comfortable lives without breaking a sweat, highlighting the unjust distribution of economic opportunities.
 
