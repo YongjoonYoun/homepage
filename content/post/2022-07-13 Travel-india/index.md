@@ -18,11 +18,17 @@ tags:
 title: Motivation to be an economist
 ---
 
-It was about 10 years ago that made me realize economics is truly important to the real world. I was backpacking in India for several months at that time. While I was backpacking on a minimum amount of money, I got used to the lives of local people with below-average wages and realized how different living in India was from the lives I had lived. When I stayed in Mumbai, for the first time, I seriously started to think about why the huge economic gap between the rich and the poor occurs while staying in the Dhobi Ghat. People who work at Dhobi Ghat (called Dhobi Wallah) make a living by doing laundry for generations, but they often do not get out of Dhobi Ghat. The fate of having to make several times more efforts to play fair games without being given fair opportunities depending on the environment from birth seemed too harsh.
+About a decade ago, I embarked on a backpacking adventure through India, seeking adventure and cultural immersion. Little did I know, this journey would ignite a profound realization about the critical role economics plays in shaping our world.
 
-Why can't someone get out of the vicious cycle of poverty even if they work hard and someone can live comfortably without labor? What should someone do to get out of an economic vicious circle? These kinds of endless questions made me uncomfortable, but I couldn't hide my excitement after knowing that economics was a discipline that had the power to change these social phenomena.
+During my travels, I found myself in Mumbai's bustling Dhobi Ghat, a mesmerizing labyrinth where generations of workers, known as Dhobi Wallahs, toiled tirelessly in laundry services. Amidst the vibrant chaos of this community, I couldn't help but notice the glaring economic disparities that permeated daily life.
 
-After my travel, I began to look seriously at economics books, and eventually, it became a great motivation for me to study economics. At the beginning of my undergrad study, of course, I had a strong interest in wealth inequality and development economics, but as I studied more, I became more interested in other areas of economics. 
+Living amongst communities earning below-average wages, I was struck by the resilience of individuals trapped in cycles of poverty despite their relentless hard work. Conversely, I witnessed others living comfortable lives without breaking a sweat, highlighting the unjust distribution of economic opportunities.
 
-My interest in inequality (broadly) is still ongoing on the one hand. Although the perspectives are a little different, the labor and applied microeconomics studies I am focusing on are more fundamentally aimed at discovering the economic choices and behaviors of individuals, and the future society we will face due to population aging may go beyond inequality and plunge everyone into an economic swamp. I am now paying more attention to the impact of structural changes caused by population aging on various parts of the economy and how to respond to them.
+These observations sparked a whirlwind of introspection, propelling me to delve deeper into the mechanisms perpetuating such inequalities. It was in the heart of Dhobi Ghat that I came face to face with the transformative power of economics in addressing these social injustices.
+
+Upon returning from my journey, I immersed myself in economics literature with newfound fervor, driven by a desire to understand and challenge the status quo. While my initial focus revolved around wealth inequality and development economics, my academic pursuits gradually expanded to encompass labor economics and applied microeconomics.
+
+Today, my passion for economics remains as fervent as ever. As I embark on my research journey, I find myself drawn to the profound impacts of population aging on economic structures. I am deeply intrigued by how these structural shifts will ripple across various sectors of the economy and am committed to devising innovative strategies to navigate the challenges they pose.
+
+In retrospect, my backpacking adventure through India served as a catalyst for my academic and intellectual journey in economics. It is a constant reminder of the power of personal experiences to shape our understanding of the world and fuel our passion for creating positive change.
 
