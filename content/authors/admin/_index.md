@@ -42,15 +42,16 @@ social:
 superuser: true
 title: Harrison Yongjoon Youn
 ---
+Welcome to my homepage! 
 
-I am a PhD student in Economics at the Ohio State University (OSU). 
+I am a Ph.D. student in Economics at the Ohio State University (OSU). 
 
-Before joining the OSU, I was a research associate at National University of Singapore (NUS) for 2 years. 
+Prior to joining OSU, I spent 2 years as a research associate at National University of Singapore (NUS), focusing on the economics of aging and measurement.
 
-My primary research interests are labor economics and the intersection between family economics and population aging. I use causal inferences to answer my research questions. 
+My research interests are labor economics and the intersection between family economics and population aging. I use causal inferences to answer my research questions. 
 
-My current working paper investigates the extent to which public transfers influence the dynamic patterns of intergenerational transfers of families in the context where the demographic structure rapidly transforms at the national level. Under population aging, with the exponentially expanding elderly population, the time and financial resources of families are doubly constrained due to heightened needs for long-term care and financial assistance. This continuously affects economic decisions and outcomes of various stages of life-cycles. I estimate the causal effects of the government's role on family spillover effects in this context leveraging a staggered adtopion design. 
+My current research delves into how public transfers impact on private intergenerational transfers amidst rapid demographic shifts. I investigate the government's role in family spillover effects, leveraging a staggered adoption design.
 
-My recently published paper questions whether surveyed data consistently measures subjectively valued answers from different individuals and investigates the methods of consistent measurement of survey data. I am currently working on the social security decision-making of the old and family formation decisions of the young.
+Recently, I published a paper examining the consistency of surveyed data across individuals and methods for consistent measurement.
 
 {{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/CV.pdf" "newtab" >}}CV{{< /staticref >}}.
