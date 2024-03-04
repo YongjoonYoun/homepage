@@ -15,9 +15,10 @@ email: ""
 highlight_name: true
 interests:
 - Labor Economics
-- Applied Econometrics 
-- Family Economics
+- Econometrics 
+- Health and Family Economics
 - Economics of Population Aging
+- Measurement
 
 organizations:
 - name: The Ohio State University
@@ -48,9 +49,9 @@ I am a Ph.D. student in Economics at the Ohio State University (OSU).
 
 Prior to joining OSU, I spent 2 years as a research associate at National University of Singapore (NUS), focusing on the economics of aging and measurement.
 
-My research interests are labor economics and the intersection between family economics and population aging. I use causal inferences to answer my research questions. 
+My research interests are labor economics and the intersection between family and population aging. I use causal inferences to answer my research questions. 
 
-My current research delves into how public transfers impact on private intergenerational transfers amidst rapid demographic shifts. I investigate the government's role in family spillover effects, leveraging a staggered adoption design.
+My current research delves into how public transfers impact on private intergenerational transfers amidst rapid demographic shifts. I investigate the government's role in family spillover and crowd-out effects, leveraging a staggered adoption design.
 
 Recently, I published a paper examining the consistency of surveyed data across individuals and methods for consistent measurement.
 
