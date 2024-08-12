@@ -7212,7 +7212,7 @@ a.text-dark:hover, a.text-dark:focus {
  **************************************************/
 html {
   font-family: "Roboto", sans-serif;
-  font-size: 16.17px;
+  font-size: 13.86px;
   color: rgba(0, 0, 0, 0.8);
   line-height: 1.65;
   scroll-padding-top: 70px; }
@@ -7221,7 +7221,7 @@ html {
       scroll-padding-top: 50px; } }
 @media screen and (min-width: 58em) {
   html {
-    font-size: 21px; } }
+    font-size: 18px; } }
 
 body {
   font-family: inherit;
@@ -8122,7 +8122,7 @@ a.summary-link {
   height: 70px;
   background: #fff;
   box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.11);
-  font-size: 16.17px;
+  font-size: 13.86px;
   padding: 0 1rem; }
   .navbar .nav-item {
     position: relative; }
@@ -8146,7 +8146,7 @@ a.summary-link {
         font-weight: bold !important;
         color: #2962ff !important; }
   .navbar .dropdown-menu {
-    font-size: 16.17px; }
+    font-size: 13.86px; }
   .navbar .dropdown-item.active,
   .navbar .dropdown-item-active {
     font-weight: bold;

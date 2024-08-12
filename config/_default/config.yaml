@@ -5,7 +5,7 @@ theme: "starter-hugo-academic"
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
 title: Harrison Yongjoon Youn # Website name
-baseURL: 'https://example.com/' # Website URL
+baseURL: 'https://harrisonyoun.com/' # Website URL
 
 ############################
 ## LANGUAGE
