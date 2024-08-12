@@ -3,6 +3,6 @@ cms_exclude: true
 header:
   caption: ""
   image: ""
-title: Working Papers
+title: Recent Publications
 view: 4
 ---

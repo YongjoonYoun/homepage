@@ -1,0 +1,42 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{4}{c}}
+\toprule
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+            &\multicolumn{1}{c}{} &\multicolumn{1}{c}{} &\multicolumn{1}{c}{} &\multicolumn{1}{c}{} \\
+\midrule
+Effect\_1    &       17.70         &       50.54         &       70.58\sym{***}&      -130.0         \\
+            &     (20.82)         &     (44.79)         &     (20.90)         &     (103.3)         \\
+\addlinespace
+Effect\_2    &       20.06         &      -34.69         &       173.0\sym{***}&      -167.4         \\
+            &     (12.34)         &     (36.26)         &     (47.69)         &     (166.9)         \\
+\addlinespace
+Effect\_3    &       40.73\sym{*}  &      -8.450         &       251.0\sym{***}&      -234.9         \\
+            &     (19.80)         &     (77.93)         &     (72.45)         &     (196.5)         \\
+\addlinespace
+Effect\_4    &       21.41         &      -42.22         &       446.1\sym{***}&      -278.0         \\
+            &     (31.71)         &     (167.8)         &     (125.2)         &     (302.9)         \\
+\addlinespace
+Effect\_5    &       6.510\sym{*}  &       6.925         &       765.4\sym{***}&      -199.9         \\
+            &     (2.681)         &     (101.8)         &     (218.8)         &     (346.6)         \\
+\addlinespace
+Placebo\_1   &       21.63         &      -24.64         &      -115.1\sym{**} &      -102.5         \\
+            &     (16.21)         &     (82.40)         &     (35.37)         &     (107.6)         \\
+\addlinespace
+Placebo\_2   &      -14.48         &       72.71         &      -263.8\sym{**} &      -244.2         \\
+            &     (18.35)         &     (146.3)         &     (90.07)         &     (235.9)         \\
+\addlinespace
+Placebo\_3   &       55.56         &       58.48         &      -614.0\sym{*}  &      -194.5         \\
+            &     (73.49)         &     (42.17)         &     (311.0)         &     (171.8)         \\
+\addlinespace
+Avg\_Tot\_Effect&      0.0192\sym{*}  &     0.00333         &       0.127\sym{***}&      -0.111         \\
+            &   (0.00859)         &    (0.0427)         &    (0.0334)         &     (0.102)         \\
+\midrule
+p\_joint     &           .         &           .         &           .         &           .         \\
+p\_placebo   &                     &                     &                     &                     \\
+controls    &          No         &          No         &          No         &          No         \\
+\bottomrule
+\multicolumn{5}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\end{tabular}
+}
