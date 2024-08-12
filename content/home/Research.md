@@ -8,7 +8,7 @@ headless: true
 active: true
 
 # Order that this section appears on the page.
-weight: 60
+weight: 40
 
 title: Working Papers
 subtitle: 
@@ -17,7 +17,7 @@ content:
   # Filter on criteria
   filters:
     folders:
-      - research
+      - project
     tag: ''
     category: ''
     publication_type: ''
