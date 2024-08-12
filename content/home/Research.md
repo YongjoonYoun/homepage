@@ -17,7 +17,7 @@ content:
   # Filter on criteria
   filters:
     folders:
-      - project
+      - research
     tag: ''
     category: ''
     publication_type: ''
