@@ -1,11 +1,11 @@
 ---
-date: "2024-08-12T00:00:00Z"
+date: "2024-08-11T00:00:00Z"
 external_link: ""
 image:
   caption: 
   focal_point: Smart  
 #links:
-#- icon:  
+#- icon:   
   #icon_pack:  
   #name:  
   #url:  
