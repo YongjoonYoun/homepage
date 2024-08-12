@@ -6,9 +6,9 @@
 # Appearance
 
 appearance:
-  theme_day: minimal
-  theme_night: minimal
-  font: minimal
+  theme_day: strawberry
+  theme_night: strawberry
+  font: strawberry
   font_size: M
 
 # SEO
