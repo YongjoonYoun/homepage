@@ -15,6 +15,7 @@ defaultContentLanguage: en
 hasCJKLanguage: false
 defaultContentLanguageInSubdir: false
 removePathAccents: true
+sharing: false
 
 ############################
 ## MODULES
@@ -28,6 +29,7 @@ module:
 ############################
 ## ADVANCED
 ############################
+
 
 enableGitInfo: false
 summaryLength: 30
