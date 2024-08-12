@@ -3,24 +3,26 @@ date: "2024-08-12T00:00:00Z"
 external_link: ""
 image:
   caption: 
-  focal_point:  
-links:
-- icon:  
-  icon_pack:  
-  name:  
-  url:  
-slides:  
-summary:  
-tags:
+  focal_point: Smart  
+#links:
+#- icon:  
+  #icon_pack:  
+  #name:  
+  #url:  
+#slides:  
+summary:   
+#tags:
 - 
 title: "Intergenerational Dilemma: Balancing Windfalls and Burdens of Public Transfers in Korea"
-url_code: ""
-url_pdf: ""
-url_slides: ""
-url_video: ""
----
+#url_code: ""
+#url_pdf: ""
+#url_slides: ""
+#url_video: ""
+--- 
 
-Short Summary: Over the past few decades, the global demographic landscape has rapidly transformed with the onset of an unprecedented era of population aging. Among others, South Korea has emerged as the world's fastest-aging country, exhibiting the lowest total fertility rates and the most rapid growth
+
+
+Over the past few decades, the global demographic landscape has rapidly transformed with the onset of an unprecedented era of population aging. Among others, South Korea has emerged as the world's fastest-aging country, exhibiting the lowest total fertility rates and the most rapid growth
 in the elderly population (Bloom et al., 2023). Despite this demographic shift, the nationwide development of old-age income security measures was introduced relatively late, in the early 2000s, in response to an elderly poverty rate exceeding 40% (Chung, 2024). To provide financial security to the ever-increasing elderly population, the Korean government introduced the Basic Pension (BP) system in 2008. This non-contributory pension unconditionally transfers cash to 70% of the population aged 65 or older, providing windfalls for the elderly, while funding is sourced from shrinking younger generations.
 
 The adult children of financially insecure elderly parents may face particularly constrained economic decisions across various life-cycle stages, as they may have to bear the dual responsibility of increasing BP funding burdens and providing financial support to their financially insecure parents. If BP benefits completely crowd out financial support from adult children, the burden on the children will be eased, but the elderly parents will have no windfall gains (Becker, 1974).
