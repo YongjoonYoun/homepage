@@ -17,7 +17,7 @@ content:
   # Filter on criteria
   filters:
     folders:
-      - Research
+      - research
     tag: ''
     category: ''
     publication_type: ''
@@ -34,6 +34,6 @@ content:
 design:
   # Choose a view for the listings:
   view: citation
-  columns: '2'
+  columns: '4'
 ---
 
