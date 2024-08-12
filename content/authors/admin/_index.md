@@ -47,4 +47,4 @@ Prior to joining OSU, I spent 2 years as a research associate at National Univer
 
 I am interested in Labor Economics, Health, and Aging. I apply causal inference methods to address my research questions,
 
-Download my {{< staticref "uploads/CV.pdf" "newtab" >}}CV{{< /staticref >}}.
+{{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/CV.pdf" "newtab" >}}CV{{< /staticref >}}.
