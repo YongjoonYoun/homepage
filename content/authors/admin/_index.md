@@ -21,6 +21,7 @@ organizations:
 - name: The Ohio State University
   url: https://www.osu.edu/
 role: Ph.D. student in Economics 
+
 social:
 - icon: envelope
   icon_pack: fas
@@ -37,7 +38,7 @@ social:
 - icon: linkedin
   icon_pack: fab
   link: https://www.linkedin.com/in/harrison-youn/
-superuser: true
+superuser: false
 title: Harrison Yongjoon Youn
 ---
 Welcome to my homepage! I am a Ph.D. student in Economics at the Ohio State University (OSU). 
@@ -46,4 +47,4 @@ Prior to joining OSU, I spent 2 years as a research associate at National Univer
 
 I am interested in Labor Economics, Health, and Aging. I apply causal inference methods to address my research questions,
 
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/CV.pdf" "newtab" >}}CV{{< /staticref >}}.
+Download my {{< staticref "uploads/CV.pdf" "newtab" >}}CV{{< /staticref >}}.
