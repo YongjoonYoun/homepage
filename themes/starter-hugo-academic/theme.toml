@@ -48,4 +48,4 @@ features = ["page builder", "widgets", "themes", "search", "research publication
   homepage = ""
   repo = ""
   
-share: false  
+
