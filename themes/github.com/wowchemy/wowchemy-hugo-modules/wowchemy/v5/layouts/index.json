@@ -58,3 +58,19 @@
 {{- end -}}
 
 {{- $index | jsonify -}}
+
+<html>
+  <head>
+    <title>Example: A Site about Examples</title>
+    <script type="application/ld+json">
+    {
+      "@context" : "https://schema.org",
+      "@type" : "WebSite",
+      "name" : "Harrison's Website",
+      "url" : "https://HarrisonYoun.com/"
+    }
+  </script>
+  </head>
+  <body>
+  </body>
+</html>
