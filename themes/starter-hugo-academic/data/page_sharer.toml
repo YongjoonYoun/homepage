@@ -1,5 +1,6 @@
 # Page Sharer
 # Documentation: https://wowchemy.com/docs/hugo-tutorials/page-sharer/
+disableShare: true
 
 [[buttons]]
   id = "twitter"
