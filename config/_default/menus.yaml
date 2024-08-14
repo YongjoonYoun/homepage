@@ -9,7 +9,7 @@ main:
     weight: 40
   - name: CV
     url: 'uploads/CV.pdf'
-    weight: 40
+    weight: 50
   - name: Publications
     url: '#publications'
     weight: 60  
