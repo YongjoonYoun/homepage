@@ -8,11 +8,11 @@
   "icons": [{
     "src": "{{ (partial "functions/get_icon" 192).RelPermalink }}",
     "sizes": "192x192",
-    "type": "image/png"
+    "type": "icon/png"
     }, {
     "src": "{{ (partial "functions/get_icon" 512).RelPermalink }}",
     "sizes": "512x512",
-    "type": "image/png"
+    "type": "icon/png"
      }],
   "display": "standalone",
   "start_url": "{{ "/" | relLangURL }}?utm_source=web_app_manifest"
