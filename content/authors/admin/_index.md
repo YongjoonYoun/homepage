@@ -38,7 +38,7 @@ social:
 - icon: linkedin
   icon_pack: fab
   link: https://www.linkedin.com/in/harrison-youn/
-superuser: false
+superuser: true
 title: Harrison Yongjoon Youn
 ---
 Welcome to my homepage! I am a Ph.D. student in Economics at the Ohio State University (OSU). 
