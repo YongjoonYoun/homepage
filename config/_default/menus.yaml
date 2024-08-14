@@ -6,16 +6,22 @@
 main:
   - name: Home
     url: '#about'
-    weight: 10
-  - name: Research
+    weight: 40
+  - name: CV
+    url: 'uploads/CV.pdf'
+    weight: 40
+  - name: Publications
     url: '#publications'
-    weight: 20  
+    weight: 60  
+  - name: Working Papers
+    url: '#research'
+    weight: 70
   - name: Posts
     url: '#posts'
-    weight: 30
+    weight: 80
   - name: Contact
     url: '#contact'
-    weight: 45
+    weight: 90
 
 # Link to a PDF of your resume/CV from the menu.
 # To enable, copy your resume/CV to `static/uploads/resume.pdf` and uncomment the lines below.
