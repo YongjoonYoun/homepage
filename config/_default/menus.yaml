@@ -10,12 +10,12 @@ main:
   - name: CV
     url: 'uploads/CV.pdf'
     weight: 50
-  - name: Publications
-    url: '#publications'
-    weight: 60  
   - name: Working Papers
     url: '#research'
-    weight: 70
+    weight: 60
+  - name: Publications
+    url: '#publications'
+    weight: 70  
   - name: Posts
     url: '#posts'
     weight: 80
