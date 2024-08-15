@@ -7,10 +7,11 @@ name = "Strawberry"
 
   # Menu
   menu_primary = "#d05460"
-  menu_text = "#d05460"
-  menu_text_active = "rgb(208, 255, 56)"
-  menu_title = "#d05460"
+  menu_text = "#000"
+  menu_text_active = "#000"
+  menu_title = "#000"
 
   # Home sections
-  home_section_odd = "#d05460"
-  home_section_even = "#d05460"
+  home_section_odd = "#fefae0"
+  home_section_even = "#fefae0"
+
