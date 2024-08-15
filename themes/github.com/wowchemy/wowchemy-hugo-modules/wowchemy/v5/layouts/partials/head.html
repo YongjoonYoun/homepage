@@ -6,15 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="{{ .Site.Params.Author }}" />
     {{ if .Site.Params.description }}<meta name="description" content="{{ .Site.Params.description }}">{{ end }}
-    <link rel="shortcut icon" type="image/x-icon" href="{{ .Site.BaseURL }}img/favicon.ico">
-    <title>
-    {{- $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" -}}
-    {{- if eq $url "/" -}}
-        {{- .Site.Title -}}
-    {{- else -}}
-        {{- if .Params.heading -}} {{- .Params.heading -}} {{- else -}} {{- .Title -}} {{- end -}}
-    {{- end -}}
-	</title>
+    <link rel="icon" type="image/png" href="../media/icon.png" sizes="192x192">
+    <title>Harrison Youn's Website</title>
     {{ hugo.Generator }}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}css/main.css" />
@@ -33,3 +26,31 @@
 
     {{ template "_internal/google_analytics.html" . }}
   </head>
+
+
+<!--<html>
+  <head>
+    <title>Example: A Site about Examples</title>
+    <script type="application/ld+json">
+    {
+      "@context" : "https://schema.org",
+      "@type" : "WebSite",
+      "name" : "Harrison's Website",
+      "url" : "https://HarrisonYoun.com/"
+    }
+  </script>
+  </head>
+  <body>
+  </body>
+</html>
+
+
+<!-- <title>
+    {{- $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" -}}
+    {{- if eq $url "/" -}}
+        {{- .Site.Title -}}
+    {{- else -}}
+        {{- if .Params.heading -}} {{- .Params.heading -}} {{- else -}} {{- .Title -}} {{- end -}}
+    {{- end -}}
+	</title> -->
+	    <link rel="shortcut icon" type="image/x-icon" href="{{ .Site.BaseURL }}img/favicon.ico">
