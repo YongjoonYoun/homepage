@@ -5,10 +5,10 @@
 
 # Appearance
 appearance:
-  theme_day: Minimal
+  theme_day: Strawberry
   theme_night: Minimal
   font: Minimal
-  font_size: m
+  font_size: l
 
 # SEO
 

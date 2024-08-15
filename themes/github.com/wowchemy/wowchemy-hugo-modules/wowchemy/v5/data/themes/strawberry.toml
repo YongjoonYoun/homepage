@@ -3,14 +3,14 @@ name = "Strawberry"
 
 [light]
   # Primary
-  primary = "#ff3860"
+  primary = "#d05460"
 
   # Menu
-  menu_primary = "#ff3860"
-  menu_text = "#fff"
+  menu_primary = "#d05460"
+  menu_text = "#d05460"
   menu_text_active = "rgb(208, 255, 56)"
-  menu_title = "#fff"
+  menu_title = "#d05460"
 
   # Home sections
-  home_section_odd = "#fff"
-  home_section_even = "#fff"
+  home_section_odd = "#d05460"
+  home_section_even = "#d05460"
