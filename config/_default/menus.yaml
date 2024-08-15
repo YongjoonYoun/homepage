@@ -11,7 +11,8 @@ main:
     url: 'uploads/CV.pdf'
     weight: 50
   - name: Working Papers
-    url: '#research'
+    url: '/research/'
+    identifier: "research"
     weight: 60
   - name: Publications
     url: '#publications'
