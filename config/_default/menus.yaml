@@ -14,13 +14,13 @@ main:
     url: '/research/'
     weight: 60
   - name: Publications
-    url: '/publications/'
+    url: '#publications'
     weight: 70  
   - name: Posts
-    url: '/posts/'
+    url: '#posts'
     weight: 80
   - name: Contact
-    url: '/contact/'
+    url: '#contact'
     weight: 90
 
 # Link to a PDF of your resume/CV from the menu.
