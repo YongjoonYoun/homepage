@@ -49,5 +49,5 @@ content:
       link: 'https://twitter.com/YongjoonYoun'
     
 design:
-  columns: '2'
+  columns: '4'
 ---
