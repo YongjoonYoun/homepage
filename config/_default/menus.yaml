@@ -12,7 +12,6 @@ main:
     weight: 50
   - name: Working Papers
     url: '/research/'
-    identifier: "research"
     weight: 60
   - name: Publications
     url: '#publications'
