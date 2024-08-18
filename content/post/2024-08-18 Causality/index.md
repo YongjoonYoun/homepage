@@ -39,4 +39,4 @@ This reflection led me to consider the microorganisms in my room. Despite sharin
 
 Before this realization, I had a sense that everything might be relevant to my economic decisions and attempted to incorporate as many factors as possible into my study design. However, this reflection has been instrumental in helping me identify which factors are truly significant, which are negligible, and how to differentiate between exogenous and endogenous variables. It has also guided me in narrowing down the channels for understanding causal relationships.
 
-I acknowledge that my understanding is still limited and evolving, but I am hopeful of deepening my insight over time by exploring different perspectives on how to reconcile the two seemingly separate worlds, as Markus suggests.
+I acknowledge that my understanding is still limited and evolving, but I am hopeful of deepening my insight over time by exploring different perspectives on how to reconcile the two seemingly separate worlds.
