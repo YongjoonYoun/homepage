@@ -16,7 +16,7 @@ projects: []
 tags:
 
 - Academic
-title: "The Philosophical Parallels of Economics: Structural Models, Reduced Form, and the Search for Truth"
+title: "The Philosophical Parallels of Economics: Structural and Reduced Form Models, and the Search for Truth"
 ---
 
 As I sat in my room reading Markus Gabriel's "Why the World Does Not Exist," which explores an ontological approach to bridging metaphysics and post-modern worldviews, I found myself drawing an unexpected parallel to the ongoing debate in economics between structural models and reduced form approaches. In metaphysics, there's a belief in an objective truth that governs the physical world, while post-modernism suggests that much of what we consider truth is a human construct.
