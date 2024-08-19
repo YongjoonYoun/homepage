@@ -15,7 +15,6 @@ lastmod: "2024-08-18T00:00:00Z"
 projects: []
 tags:
 
-- Academic
 title: "The Philosophical Parallels of Economics: Structural Models, Reduced-Form Approaches, and the Search for Truth"
 ---
 

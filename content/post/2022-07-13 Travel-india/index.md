@@ -14,7 +14,6 @@ image:
 lastmod: "2022-07-13T00:00:00Z"
 projects: []
 tags:
-- Academic
 title: Motivation to be an economist
 ---
 
