@@ -2,7 +2,7 @@
 authors:
 - admin
 categories:
-- Some Thoughts
+- Thoughts on Economic Philosophy
 date: "2024-08-18T00:00:00Z"
 draft: false
 featured: false
