@@ -3,7 +3,7 @@ authors:
 - admin
 categories:
 - Thoughts on Political Philosophy
-date: "2024-08-25T00:00:00Z"
+date: "2024-08-24T00:00:00Z"
 draft: false
 featured: false
 image:
@@ -11,7 +11,7 @@ image:
   focal_point: ""
   placement: 2
   preview_only: false
-lastmod: "2024-08-25T00:00:00Z"
+lastmod: "2024-08-24T00:00:00Z"
 projects: []
 tags:
 
