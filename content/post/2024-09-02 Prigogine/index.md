@@ -15,7 +15,9 @@ lastmod: "2024-09-02T00:00:00Z"
 projects: []
 tags:
 
-title: "From Physics to Chemistry: Rethinking Causality in the Modern Scientific and economic Paradigm"
+title: "From Physics to Chemistry: Rethinking Modern Social Science Through Scientific Paradigms"
+
+
 ---
 
 Before the 18th century, the landscape of Western scientific thought was profoundly shaped by Aristotle's conception of nature, particularly his nuanced theories of causality as articulated in "Physica" and "Metaphysica." Aristotle distinguished between four types of causes: causa materialis (material cause), causa formalis (formal cause), causa efficiens (efficient cause), and causa finalis (final cause). For instance, in the making of a table, the wood from which it is crafted represents the material cause; its design or shape is the formal cause; the carpenter who brings it into being is the efficient cause; and the purpose it serves, such as dining or writing, is the final cause. Aristotle's natural philosophy, deeply influenced by Platonic thought, placed a significant emphasis on the formal and final causes, in stark contrast to the modern scientific focus on material and efficient causes. The origins of this profound shift can be traced to Francis Bacon, who, in his seminal 1605 work, "The Advancement of Learning," asserted that natural inquiry should be confined to material and efficient causes. He argued that formal and final causes were too entangled with human perspectives, thereby lacking the objective rigor that material and efficient causes provided. This intellectual reorientation heralded the advent of the scientific revolution, a transformative epoch epitomized by the pioneering works of Galileo and Newton.
