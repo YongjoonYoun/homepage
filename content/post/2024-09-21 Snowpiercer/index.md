@@ -56,7 +56,7 @@ The inherent characteristics of the train and modernity are closely intertwined.
 
 In the film's climactic scene between Wilford and Curtis, we see a powerful commentary on both modern and contemporary history. As Nam and Curtis approach the engine room, Nam is shot by Wilford's secretary, while Curtis is invited to converse with Wilford, reflecting the historical clash between capitalism (represented by Wilford) and socialism (represented by Curtis). Their conversation about humanity's future can be interpreted as a metaphor for Western domination and the racial inequalities that persist in contemporary society. Nam and his daughter, representing the marginalized, are violently excluded from this conversation, while a black child is reduced to mechanical labor beneath the train's floor, having lost his autonomy and agency.
 
-These characters---Nam, his daughter, and the black child???are symbolic of the Third World, nations and peoples historically subjugated by the imperialist struggles between capitalist and socialist powers. Though modernity's colonial forces have given way to postmodern globalization, the essential inequalities persist. As modernity pursues the endless creation of new values and capitalism strives for infinite growth, the underlying dynamics remain unchanged. However, the concept of the Third World is no longer strictly bound by race or nationality but is now increasingly determined by economic position within a globalized society. In this sense, The film critiques the pervasive essentialism of today's global system, using the metaphor of the eternal engine to turn back the clock to the era of modernity.
+These characters---Nam, his daughter, and the black child---are symbolic of the Third World, nations and peoples historically subjugated by the imperialist struggles between capitalist and socialist powers. Though modernity's colonial forces have given way to postmodern globalization, the essential inequalities persist. As modernity pursues the endless creation of new values and capitalism strives for infinite growth, the underlying dynamics remain unchanged. However, the concept of the Third World is no longer strictly bound by race or nationality but is now increasingly determined by economic position within a globalized society. In this sense, The film critiques the pervasive essentialism of today's global system, using the metaphor of the eternal engine to turn back the clock to the era of modernity.
 
 Nam's desire to blow up the train symbolizes the revolutionary impulse to break free from the entrenched economic system, and his success in doing so visualizes the triumph of the oppressed over the system that exploits them. Through the film's consistent use of the 180---degree rule and purposeful direction, the collapse of the train from the right end is depicted as the revolutionaries' victory.
 
@@ -64,6 +64,16 @@ The train's system had already begun to fail before the collapse, as evidenced b
 
 In the end, the two survivors of humanity are an Asian girl and a black child, both marginalized figures during modernity. The future of humankind rests in the hands of those who have been oppressed by essentialist definitions and one-sided systems. Director Bong Joon-ho may have envisioned hope in these characters, suggesting that they represent the possibility of a future liberated from Western domination. As the film leaves the fate of these survivors uncertain, it asks us to imagine a new history in which essentialism no longer dictates human lives. The train has stopped running, and the two children confront the daunting reality of an unknown world. It is in their hands to write the next chapter of human history, free from the constraints of the old systems.
 
+**References**
 
+Bordwell, D., Thompson, C. (1979). *Film art: an introduction*. London: Addison-Wesley. pp. 1-339
+
+Ching, E., Buckley, C., Lozano-Alonso, A. (2007). *Reframing Latin America: a cultural theory reading of the nineteenth and twentieth centuries*. Austin: University of Texas Press. pp. 3-266
+
+Heilbroner, R, L. (2000). *The worldly philosophers: the lives, times, and ideas of the great economic thinkers*, 7th edition. London: Penguin Books. pp. 1-365
+
+John, H., Pamela C. G. (2000). World Cinema: Critical approaches. Oxford University Press	. pp. 1-10
+
+Piketty, T., & Goldhammer, A. (2014). Rethinking the Progressive Income Tax. Capital in the twenty-first century (pp. 493-514). Massachusetts United States: Harvard University Press
 
 
