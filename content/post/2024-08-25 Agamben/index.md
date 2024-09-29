@@ -2,7 +2,7 @@
 authors:
 - admin
 categories:
-- Thoughts on Political Philosophy
+- Personal Thoughts
 date: "2024-08-24T00:00:00Z"
 draft: false
 featured: false

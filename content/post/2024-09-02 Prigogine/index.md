@@ -2,7 +2,7 @@
 authors:
 - admin
 categories:
-- Thoughts on Philosophy of Science
+- Personal Thoughts
 date: "2024-09-02T00:00:00Z"
 draft: false
 featured: false

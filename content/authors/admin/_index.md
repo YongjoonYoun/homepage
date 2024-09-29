@@ -15,7 +15,7 @@ email: ""
 highlight_name: true
 interests:
 - Labor Economics
-- Health & Aging
+- Health & Aging Economics
 
 organizations:
 - name: The Ohio State University
