@@ -46,7 +46,7 @@ Welcome to my homepage! I am a Ph.D. student in Economics at the Ohio State Univ
 
 Prior to joining OSU, I spent 2 years as a research associate at National University of Singapore (NUS), focusing on the economics of aging and measurement.
 
-My research interests lie in labor economics, health economics, the economics of aging, and public economics. I use causal inference methods to address my research questions.
+My research interests lie in labor, health, aging, and public economics. I use causal inference methods to address my research questions.
 
 
 {{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/CV.pdf" "newtab" >}}CV{{< /staticref >}}.
