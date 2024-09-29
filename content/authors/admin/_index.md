@@ -4,7 +4,7 @@ education:
   courses:
   - course: Ph.D., Economics
     institution: The Ohio State University
-    year: 2027 (expected)
+    year: 2028 (expected)
   - course: M.Sc., Economics
     institution: Barcelona School of Economics
     year: 2020
@@ -16,6 +16,7 @@ highlight_name: true
 interests:
 - Labor Economics
 - Health & Aging Economics
+- Public Economics
 
 organizations:
 - name: The Ohio State University
