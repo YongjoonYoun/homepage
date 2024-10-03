@@ -12,7 +12,7 @@ The **Constant Elasticity of Substitution (CES) Function** is a fundamental conc
 ### **CES Production Function Formula**
 
 $$
-Y = \left[ \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right]^{-\frac{1}{\rho}}
+Y = \left[ \alpha K^{-\rho} + (1 - \alpha) L^{-\rho}\right]^{-\frac{1}{\rho}}
 $$
 
 - **\( Y \)**: Total output
@@ -111,50 +111,62 @@ Use the interactive calculator below to explore how changes in capital (K) and l
 </div>
 
 <!-- Styling for the Calculator -->
+<!-- Styling for the Calculator -->
+<!-- Styling for the Calculator -->
 <style>
   .calculator {
     max-width: 600px;
     margin: 40px auto;
     padding: 20px;
-    border: 2px solid #007ACC;
+    border: 2px solid #8B0000; /* Changed to Dark Red */
     border-radius: 10px;
-    background-color: #f9f9f9;
+    background-color: #ffe6e6; /* Light Red Background for readability */
   }
   .calculator label {
     display: block;
     margin-top: 15px;
     font-weight: bold;
+    color: #8B0000; /* Dark Red for labels */
   }
   .calculator input {
     width: 100%;
     padding: 8px;
     margin-top: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #8B0000; /* Dark Red Border for inputs */
     border-radius: 4px;
+    background-color: #fff5f5; /* Very Light Red Background for inputs */
+    color: #000; /* Black text for readability */
+  }
+  .calculator input:focus {
+    border-color: #B22222; /* Firebrick Red on focus */
+    box-shadow: 0 0 5px rgba(178, 34, 34, 0.5); /* Subtle red glow */
+    outline: none;
   }
   .calculator button {
     width: 100%;
     padding: 10px;
     margin-top: 20px;
-    background-color: #007ACC;
+    background-color: #B22222; /* Firebrick Red Button */
     color: white;
     border: none;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
     font-weight: bold;
+    transition: background-color 0.3s ease;
   }
   .calculator button:hover {
-    background-color: #005F99;
+    background-color: #8B0000; /* Darker Red on Hover */
   }
   .result {
     margin-top: 20px;
     padding: 15px;
-    background-color: #e6f7ff;
-    border-left: 5px solid #007ACC;
+    background-color: #ffcccc; /* Light Red Background for result */
+    border-left: 5px solid #B22222; /* Firebrick Red Border */
     border-radius: 4px;
     font-size: 18px;
     font-weight: bold;
+    color: #8B0000; /* Dark Red Text */
   }
   .chart-container {
     position: relative;
@@ -174,6 +186,7 @@ Use the interactive calculator below to explore how changes in capital (K) and l
     border: 0;
   }
 </style>
+
 
 <!-- Include Chart.js Library -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
