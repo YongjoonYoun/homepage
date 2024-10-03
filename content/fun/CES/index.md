@@ -78,21 +78,6 @@ $$
   - **Outcome**: Limited improvements in diagnostic processes, maintaining the necessity for a skilled medical workforce.
 
 ---
-## **4. Update the CES Calculator Page (Optional Enhancements)**
-
-While the **Fun** landing page provides comprehensive explanations, you can enhance the CES Calculator page (`content/fun/CES/index.md`) by adding a brief overview and context. However, ensure that you avoid duplicating the page title to prevent it from appearing twice.
-
-**Updated `content/fun/CES/index.md`:**
-
-```markdown
----
-title: "CES Function Graphic Calculator"
-description: "An interactive CES function calculator for visualizing economic models."
-type: "page"
-url: "/fun/CES/"
-weight: 10
-date: "2024-10-02"
----
 # CES Function Graphic Calculator
 
 Use the interactive calculator below to explore how changes in capital (K) and labor (L) affect total output (Y) based on the CES production function. Adjust the parameters \( \alpha \) and \( \rho \) to see different substitution scenarios and understand their economic implications.
