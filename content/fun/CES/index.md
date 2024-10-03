@@ -1,34 +1,91 @@
 ## CES Function Graphic Calculator
 
-{{< ces-calculator >}}## CES Function Graphic Calculator
-
+<!-- CES Calculator Container -->
 <div class="calculator">
   <h2>CES Function Graphic Calculator</h2>
   
-  <label for="alpha">ес (0 < ес < 1):</label>
-  <input type="number" id="alpha" step="0.01" min="0.01" max="0.99" placeholder="Enter ес">
-
-  <label for="rho">её (rho):</label>
-  <input type="number" id="rho" step="0.01" placeholder="Enter её">
-
+  <label for="alpha">&alpha; (0 &lt; &alpha; &lt; 1):</label>
+  <input type="number" id="alpha" step="0.01" min="0.01" max="0.99" placeholder="Enter &alpha;">
+  
+  <label for="rho">&rho; (rho):</label>
+  <input type="number" id="rho" step="0.01" placeholder="Enter &rho;">
+  
   <label for="K">K (Capital):</label>
   <input type="number" id="K" step="0.01" min="0" placeholder="Enter K">
-
+  
   <label for="L">L (Labor):</label>
   <input type="number" id="L" step="0.01" min="0" placeholder="Enter L">
-
+  
   <button onclick="calculateAndPlot()">Calculate & Plot Y</button>
-
+  
   <div id="result" class="result" style="display:none;"></div>
-
+  
   <div class="chart-container">
     <canvas id="cesChart" style="display:none;"></canvas>
   </div>
 </div>
 
-<!-- Include Chart.js library -->
+<!-- Styling for the Calculator -->
+<style>
+  .calculator {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 2px solid #007ACC;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+  }
+  .calculator h2 {
+    text-align: center;
+    color: #007ACC;
+  }
+  .calculator label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+  }
+  .calculator input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .calculator button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #007ACC;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .calculator button:hover {
+    background-color: #005F99;
+  }
+  .result {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e6f7ff;
+    border-left: 5px solid #007ACC;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .chart-container {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    margin-top: 20px;
+  }
+</style>
+
+<!-- Include Chart.js Library -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+<!-- CES Calculator JavaScript -->
 <script>
   let cesChartInstance = null;
 
@@ -41,11 +98,11 @@
 
     // Input validation
     if (isNaN(alpha) || alpha <= 0 || alpha >= 1) {
-      alert('Please enter a valid ес between 0 and 1.');
+      alert('Please enter a valid &alpha; between 0 and 1.');
       return;
     }
     if (isNaN(rho)) {
-      alert('Please enter a valid её.');
+      alert('Please enter a valid &rho;.');
       return;
     }
     if (isNaN(K) || K <= 0) {

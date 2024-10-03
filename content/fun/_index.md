@@ -1,8 +1,7 @@
 ---
-cms_exclude: true
-header:
-  caption: ""
-  image: ""
-title: Fun Things
-view: 4
+title: "CES Function Graphic Calculator"
+description: "An interactive CES function calculator for visualizing economic models."
+type: "page"
+url: "/fun/CES/"
+weight: 10
 ---
