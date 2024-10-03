@@ -1,7 +1,7 @@
 ---
-title: "CES Function Graphic Calculator"
-description: "An interactive CES function calculator for visualizing economic models."
+title: "Fun"
+description: "Explore fun and interactive economics tools."
 type: "page"
-url: "/fun/CES/"
-weight: 10
+url: "/fun/"
+weight: 30
 ---
