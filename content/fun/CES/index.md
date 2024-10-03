@@ -2,7 +2,7 @@
 title: "CES Function Graphic Calculator"
 description: "Explore fun and interactive economics tools."
 type: "page"
-url: "/fun/"
+url: "/fun/CES"
 weight: 30
 date: "2024-10-02"
 ---
@@ -11,9 +11,9 @@ The **Constant Elasticity of Substitution (CES) Function** is a fundamental conc
 
 ### **CES Production Function Formula**
 
-\[
+$$
 Y = \left[ \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right]^{-\frac{1}{\rho}}
-\]
+$$
 
 - **\( Y \)**: Total output
 - **\( K \)**: Capital input
@@ -33,9 +33,9 @@ Y = \left[ \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right]^{-\frac{1}{\rho}}
 2. **Substitution Parameter (\( \rho \))**
    - **Definition**: Governs the ease with which capital and labor can substitute for each other.
    - **Relationship with Elasticity of Substitution (\( \sigma \))**:
-     \[
+     $$
      \sigma = \frac{1}{1 + \rho}
-     \]
+     $$
    - **Interpretation**:
      - **\( \rho = 0 \)**: Perfect substitutes (Cobb-Douglas production function).
      - **\( \rho > 0 \)**: Limited substitutability; inputs are less easily replaceable.
@@ -43,9 +43,9 @@ Y = \left[ \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right]^{-\frac{1}{\rho}}
 
 ### **Elasticity of Substitution (\( \sigma \))**
 
-\[
+$$
 \sigma = \frac{1}{1 + \rho}
-\]
+$$
 
 - **\( \sigma > 1 \)**: High substitutability between inputs.
 - **\( \sigma = 1 \)**: Cobb-Douglas (constant returns to substitution).
@@ -78,18 +78,11 @@ Y = \left[ \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right]^{-\frac{1}{\rho}}
   - **Outcome**: Limited improvements in diagnostic processes, maintaining the necessity for a skilled medical workforce.
 
 ---
+## **4. Update the CES Calculator Page (Optional Enhancements)**
 
-## **Available Tools**
+While the **Fun** landing page provides comprehensive explanations, you can enhance the CES Calculator page (`content/fun/CES/index.md`) by adding a brief overview and context. However, ensure that you avoid duplicating the page title to prevent it from appearing twice.
 
-- [CES Function Graphic Calculator](/fun/CES/)
-
----
-
-## **3. Updated CES Calculator Page (Optional Enhancements)**
-
-While the **Fun** landing page provides comprehensive explanations, adding a brief overview and context to the CES calculator page can enhance user understanding and engagement.
-
-### **a. Updated `content/fun/CES/index.md`**
+**Updated `content/fun/CES/index.md`:**
 
 ```markdown
 ---
