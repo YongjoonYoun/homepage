@@ -1,8 +1,13 @@
-## CES Function Graphic Calculator
-
+---
+title: "CES Function Graphic Calculator"
+description: "An interactive CES function calculator for visualizing economic models."
+type: "page"
+url: "/fun/CES/"
+weight: 10
+date: "2024-10-02"
+---
 <!-- CES Calculator Container -->
 <div class="calculator">
-  <h2>CES Function Graphic Calculator</h2>
   
   <label for="alpha">&alpha; (0 &lt; &alpha; &lt; 1):</label>
   <input type="number" id="alpha" step="0.01" min="0.01" max="0.99" placeholder="Enter &alpha;">
@@ -38,6 +43,7 @@
   .calculator h2 {
     text-align: center;
     color: #007ACC;
+    font-weight: bold;
   }
   .calculator label {
     display: block;
@@ -61,6 +67,7 @@
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
+    font-weight: bold;
   }
   .calculator button:hover {
     background-color: #005F99;
@@ -167,20 +174,32 @@
           },
           title: {
             display: true,
-            text: 'CES Function: Output Y vs Capital K'
+            text: 'CES Function: Output Y vs Capital K',
+            font: {
+              size: 18,
+              weight: 'bold'
+            }
           }
         },
         scales: {
           x: {
             title: {
               display: true,
-              text: 'Capital K'
+              text: 'Capital K',
+              font: {
+                size: 14,
+                weight: 'bold'
+              }
             }
           },
           y: {
             title: {
               display: true,
-              text: 'Output Y'
+              text: 'Output Y',
+              font: {
+                size: 14,
+                weight: 'bold'
+              }
             },
             beginAtZero: false
           }
