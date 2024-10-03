@@ -20,7 +20,7 @@ main:
     url: '#posts'
     weight: 80
   - name: Fun
-    url: '/fun/'
+    url: '/fun'
     weight: 90
   - name: Contact
     url: '#contact'
