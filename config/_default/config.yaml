@@ -72,4 +72,7 @@ security:
 sitemap:
   _merge: deep
   
+math:
+  enable: true
+  engine: MathJax
 
