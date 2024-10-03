@@ -440,10 +440,10 @@ Direct substitution leads to an indeterminate form \( $0 \times \infty $\). To r
    We evaluate the limit as  $\rho \rightarrow 0 $:
 
    $$
-   \lim_{\rho \to 0} \ln Y = 
+   \lim_{\rho \to 0} \ln Y  
    $$
    $$
-   \lim_{\rho \to 0} -\frac{1}{\rho} \ln \left( \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right)
+   =\lim_{\rho \to 0} -\frac{1}{\rho} \ln \left( \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right)
    $$
 
    Recognizing this as  $\frac{0}{0} $ form, we differentiate numerator and denominator with respect to $ \rho$ :
@@ -452,22 +452,19 @@ Direct substitution leads to an indeterminate form \( $0 \times \infty $\). To r
    \lim_{\rho \to 0} \ln Y = 
    $$
    $$
-   \lim_{\rho \to 0} -\frac{d}{d\rho} \ln \left( \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right) /
+   \lim_{\rho \to 0} -\frac{d}{d\rho} \ln \left( \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right) / \frac{d}{d\rho} \rho 
    $$
    $$
-   \frac{d}{d\rho} \rho =
-   $$
-   $$
-   \lim_{\rho \to 0} -\frac{\frac{d}{d\rho} \ln \left( \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right)}{1}
+=   \lim_{\rho \to 0} -\frac{\frac{d}{d\rho} \ln \left( \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right)}{1}
    $$
 
 4. **Differentiating the Numerator:**
 
    $$
-   \frac{d}{d\rho} \ln \left( \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right) = 
+   \frac{d}{d\rho} \ln \left( \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right)  
    $$
    $$
-   \frac{-\alpha K^{-\rho} \ln K - (1 - \alpha) L^{-\rho} \ln L}{\alpha K^{-\rho} + (1 - \alpha) L^{-\rho}}
+=   \frac{-\alpha K^{-\rho} \ln K - (1 - \alpha) L^{-\rho} \ln L}{\alpha K^{-\rho} + (1 - \alpha) L^{-\rho}}
    $$
 
 5. **Substituting $ \rho$ = 0:**
@@ -476,9 +473,9 @@ Direct substitution leads to an indeterminate form \( $0 \times \infty $\). To r
 
    $$
    \lim_{\rho \to 0} \ln Y =
+   -\frac{-\alpha \ln K - (1 - \alpha) \ln L}{\alpha + (1 - \alpha)}   $$
    $$
-   $$
-   -\frac{-\alpha \ln K - (1 - \alpha) \ln L}{\alpha + (1 - \alpha)} = \alpha \ln K + (1 - \alpha) \ln L
+   = \alpha \ln K + (1 - \alpha) \ln L
    $$
 
 6. **Exponentiating Both Sides:**
