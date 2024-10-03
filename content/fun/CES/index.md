@@ -82,14 +82,23 @@ $$
 
 Use the interactive calculator below to explore how changes in capital (K) and labor (L) affect total output (Y) based on the CES production function. Adjust the parameters \( $ \alpha $ \) and \( $\rho$ \) to see different substitution scenarios and understand their economic implications.
 
+
 <!-- CES Calculator Container -->
 <div class="calculator">
   
-  <label for="alpha">&alpha; (0 &lt; &alpha; &lt; 1):</label>
-  <input type="number" id="alpha" step="0.01" min="0.01" max="0.99" placeholder="Enter &alpha;" aria-describedby="alphaHelp">
-  <span id="alphaHelp" class="sr-only">Please enter a value for alpha between 0 and 1.</span>
+  <label for="alpha">&alpha; (0 &lt; &alpha; &lt; 1):
+    <span class="tooltip" aria-label="Alpha determines the weight of capital in production. A higher alpha indicates a greater emphasis on automation and technology relative to labor.">
+      &#9432;
+    </span>
+  </label>
+  <input type="range" id="alpha" step="0.01" min="0.01" max="0.99" value="0.5" oninput="updateAlphaValue(this.value)">
+  <span id="alphaValue">0.50</span>
   
-  <label for="rho">&rho; (rho):</label>
+  <label for="rho">&rho; (rho):
+    <span class="tooltip" aria-label="Rho determines the elasticity of substitution between capital and labor. Lower rho means higher elasticity, allowing easier substitution between automation and labor.">
+      &#9432;
+    </span>
+  </label>
   <input type="number" id="rho" step="0.01" placeholder="Enter &rho;" aria-describedby="rhoHelp">
   <span id="rhoHelp" class="sr-only">Please enter a value for rho.</span>
   
@@ -111,35 +120,37 @@ Use the interactive calculator below to explore how changes in capital (K) and l
 </div>
 
 <!-- Styling for the Calculator -->
-<!-- Styling for the Calculator -->
-<!-- Styling for the Calculator -->
 <style>
   .calculator {
     max-width: 600px;
     margin: 40px auto;
     padding: 20px;
-    border: 2px solid #8B0000; /* Changed to Dark Red */
+    border: 2px solid #8B0000; /* Dark Red Border */
     border-radius: 10px;
-    background-color: #ffe6e6; /* Light Red Background for readability */
+    background-color: #ffe6e6; /* Light Red Background */
   }
   .calculator label {
     display: block;
     margin-top: 15px;
     font-weight: bold;
-    color: #8B0000; /* Dark Red for labels */
+    color: #8B0000; /* Dark Red Labels */
   }
-  .calculator input {
+  .calculator input[type="range"] {
+    width: 100%;
+    margin-top: 5px;
+  }
+  .calculator input[type="number"] {
     width: 100%;
     padding: 8px;
     margin-top: 5px;
-    border: 1px solid #8B0000; /* Dark Red Border for inputs */
+    border: 1px solid #8B0000; /* Dark Red Input Borders */
     border-radius: 4px;
-    background-color: #fff5f5; /* Very Light Red Background for inputs */
-    color: #000; /* Black text for readability */
+    background-color: #fff5f5; /* Very Light Red Input Background */
+    color: #000; /* Black Text for Readability */
   }
-  .calculator input:focus {
-    border-color: #B22222; /* Firebrick Red on focus */
-    box-shadow: 0 0 5px rgba(178, 34, 34, 0.5); /* Subtle red glow */
+  .calculator input[type="number"]:focus {
+    border-color: #B22222; /* Firebrick Red on Focus */
+    box-shadow: 0 0 5px rgba(178, 34, 34, 0.5); /* Subtle Red Glow */
     outline: none;
   }
   .calculator button {
@@ -161,7 +172,7 @@ Use the interactive calculator below to explore how changes in capital (K) and l
   .result {
     margin-top: 20px;
     padding: 15px;
-    background-color: #ffcccc; /* Light Red Background for result */
+    background-color: #ffcccc; /* Light Red Background for Result */
     border-left: 5px solid #B22222; /* Firebrick Red Border */
     border-radius: 4px;
     font-size: 18px;
@@ -174,6 +185,35 @@ Use the interactive calculator below to explore how changes in capital (K) and l
     width: 100%;
     margin-top: 20px;
   }
+  /* Tooltip Styling */
+  .tooltip {
+    border-bottom: 1px dotted #8B0000;
+    cursor: help;
+    margin-left: 5px;
+    position: relative;
+  }
+  
+  .tooltip::after {
+    content: attr(aria-label);
+    position: absolute;
+    left: 50%;
+    bottom: 125%;
+    transform: translateX(-50%);
+    background-color: #B22222;
+    color: #fff;
+    padding: 5px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    z-index: 10;
+  }
+  
+  .tooltip:hover::after {
+    opacity: 1;
+  }
+  
   /* Screen Reader Only */
   .sr-only {
     position: absolute;
@@ -187,7 +227,6 @@ Use the interactive calculator below to explore how changes in capital (K) and l
   }
 </style>
 
-
 <!-- Include Chart.js Library -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
 
@@ -195,6 +234,10 @@ Use the interactive calculator below to explore how changes in capital (K) and l
 <script>
   (function() {
     let cesChartInstance = null;
+
+    function updateAlphaValue(val) {
+      document.getElementById('alphaValue').innerText = val;
+    }
 
     function calculateAndPlot() {
       // Retrieve input values
@@ -221,15 +264,25 @@ Use the interactive calculator below to explore how changes in capital (K) and l
         return;
       }
 
-      // CES function calculation
-      const term1 = alpha * Math.pow(K, -rho);
-      const term2 = (1 - alpha) * Math.pow(L, -rho);
-      const Y = Math.pow(term1 + term2, -1 / rho);
+      let Y;
+
+      // Define a small epsilon to handle floating point precision
+      const epsilon = 1e-6;
+
+      if (Math.abs(rho) < epsilon) {
+        // Cobb-Douglas case
+        Y = Math.pow(K, alpha) * Math.pow(L, 1 - alpha);
+      } else {
+        // CES function calculation
+        const term1 = alpha * Math.pow(K, -rho);
+        const term2 = (1 - alpha) * Math.pow(L, -rho);
+        Y = Math.pow(term1 + term2, -1 / rho);
+      }
 
       // Display the result
       const resultDiv = document.getElementById('result');
       resultDiv.style.display = 'block';
-      resultDiv.innerHTML = `Calculated Output Y = <span style="color:#007ACC;">${Y.toFixed(4)}</span>`;
+      resultDiv.innerHTML = `Calculated Output Y = <span style="color:#8B0000;">${Y.toFixed(4)}</span>`;
 
       // Prepare data for plotting Y vs K
       const dataK = [];
@@ -239,11 +292,22 @@ Use the interactive calculator below to explore how changes in capital (K) and l
       const step = (K_max - K_min) / 20;
 
       for (let k = K_min; k <= K_max; k += step) {
-        const term1Plot = alpha * Math.pow(k, -rho);
-        const Y_plot = Math.pow(term1Plot + term2, -1 / rho);
+        let Y_plot;
+        if (Math.abs(rho) < epsilon) {
+          // Cobb-Douglas plot
+          Y_plot = Math.pow(k, alpha) * Math.pow(L, 1 - alpha);
+        } else {
+          // CES plot
+          const term1Plot = alpha * Math.pow(k, -rho);
+          Y_plot = Math.pow(term1Plot + (1 - alpha) * Math.pow(L, -rho), -1 / rho);
+        }
         dataK.push(k.toFixed(2));
         dataY.push(Y_plot.toFixed(4));
       }
+
+      // Determine chart colors based on alpha
+      const borderColor = 'rgba(140, 0, 0, 1)'; // Dark Red Border
+      const backgroundColor = 'rgba(255, 0, 0, 0.2)'; // Light Red Fill
 
       // Plot the chart
       const ctx = document.getElementById('cesChart').getContext('2d');
@@ -260,8 +324,8 @@ Use the interactive calculator below to explore how changes in capital (K) and l
           datasets: [{
             label: 'Output Y vs Capital K',
             data: dataY,
-            borderColor: 'rgba(75, 192, 192, 1)',
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: borderColor,
+            backgroundColor: backgroundColor,
             fill: true,
             tension: 0.1
           }]
@@ -274,10 +338,18 @@ Use the interactive calculator below to explore how changes in capital (K) and l
             },
             title: {
               display: true,
-              text: 'CES Function: Output Y vs Capital K',
+              text: `CES Function: Output Y vs Capital K (ес=${alpha}, её=${rho})`,
               font: {
                 size: 18,
                 weight: 'bold'
+              }
+            },
+            tooltip: {
+              enabled: true,
+              callbacks: {
+                label: function(context) {
+                  return `Y: ${context.parsed.y}`;
+                }
               }
             }
           },
@@ -308,7 +380,626 @@ Use the interactive calculator below to explore how changes in capital (K) and l
       });
     }
 
-    // Expose the function to the global scope
+    // Expose the functions to the global scope
     window.calculateAndPlot = calculateAndPlot;
+    window.updateAlphaValue = updateAlphaValue;
   })();
+</script>
+
+## **Appendix. Mathematical Derivations**
+
+Understanding the mathematical foundations of the CES function provides deeper insights into how different parameters influence production. Below are the derivations for the Cobb-Douglas case and the behavior of the CES function as \( $\rho$ \) approaches 0 and $\infty $.
+
+### **1. CES Production Function Overview**
+
+The **Constant Elasticity of Substitution (CES)** production function is given by:
+
+$$
+Y = \left[ \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right]^{-\frac{1}{\rho}}
+$$
+
+Where:
+- **\( Y \)**: Total Output
+- **\( K \)**: Capital Input
+- **\( L \)**: Labor Input
+- **\( $\alpha$ \)**: Distribution Parameter \( 0 < $\alpha$ < 1 \)
+- **\( $\rho$ \)**: Substitution Parameter
+
+The **Elasticity of Substitution \($ \sigma $\)** is related to \( $\rho$ \) by:
+
+$$
+\sigma = \frac{1}{1 + \rho}
+$$
+
+### **2. Derivation of the Cobb-Douglas Production Function \( $\rho \rightarrow 0 $\)**
+
+The **Cobb-Douglas** production function is a special case of the CES function where the elasticity of substitution \( $\sigma$ = 1 \), implying \($ \rho $= 0 \).
+
+#### **a. Starting with the CES Function:**
+
+$$
+Y = \left[ \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right]^{-\frac{1}{\rho}}
+$$
+
+#### **b. Taking the Limit as \($ \rho \rightarrow 0 $\):**
+
+Direct substitution leads to an indeterminate form \( $0 \times \infty $\). To resolve this, we apply **L'Hopital's Rule**.
+
+1. **Rewriting the CES Function:**
+
+   Let $ f(\rho) = \left[ \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right]^{-\frac{1}{\rho}}$ 
+
+2. **Taking Natural Logarithm:**
+
+  $ 
+   \ln Y = -\frac{1}{\rho} \ln \left( \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right)
+   $
+
+3. **Applying L'Hopital's Rule:**
+
+   We evaluate the limit as  $\rho \rightarrow 0 $:
+
+   $$
+   \lim_{\rho \to 0} \ln Y = \lim_{\rho \to 0} -\frac{1}{\rho} \ln \left( \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right)
+   $$
+
+   Recognizing this as  $\frac{0}{0} $ form, we differentiate numerator and denominator with respect to $ \rho$ :
+
+   $$
+   \lim_{\rho \to 0} \ln Y = \lim_{\rho \to 0} -\frac{d}{d\rho} \ln \left( \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right) / \frac{d}{d\rho} \rho = \lim_{\rho \to 0} -\frac{\frac{d}{d\rho} \ln \left( \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right)}{1}
+   $$
+
+4. **Differentiating the Numerator:**
+
+   $$
+   \frac{d}{d\rho} \ln \left( \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right) = \frac{-\alpha K^{-\rho} \ln K - (1 - \alpha) L^{-\rho} \ln L}{\alpha K^{-\rho} + (1 - \alpha) L^{-\rho}}
+   $$
+
+5. **Substituting $ \rho$ = 0:**
+
+   As $ \rho \rightarrow 0,  K^{-\rho} \rightarrow 1$  and  $L^{-\rho} \rightarrow 1 $:
+
+   $$
+   \lim_{\rho \to 0} \ln Y = -\frac{-\alpha \ln K - (1 - \alpha) \ln L}{\alpha + (1 - \alpha)} = \alpha \ln K + (1 - \alpha) \ln L
+   $$
+
+6. **Exponentiating Both Sides:**
+
+   $$
+   Y = e^{\alpha \ln K + (1 - \alpha) \ln L} = K^{\alpha} L^{1 - \alpha}
+   $$
+
+#### **c. Conclusion:**
+
+As $ \rho \rightarrow 0 $, the CES production function converges to the Cobb-Douglas production function:
+
+$$
+Y = K^{\alpha} L^{1 - \alpha}
+$$
+
+### **3. Behavior of the CES Function as  $\rho \rightarrow \infty $**
+
+Understanding the behavior of the CES function as $ \rho$  approaches infinity provides insights into the substitutability between capital and labor.
+
+#### **a. Starting with the CES Function:**
+
+$$
+Y = \left[ \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right]^{-\frac{1}{\rho}}
+$$
+
+#### **b. Analyzing the Limit as $\rho \rightarrow \infty$:**
+
+1. **Understanding the Dominant Term:**
+
+   As $ \rho$  becomes very large, $ K^{-\rho}$  and $ L^{-\rho} $ tend towards 0 if $ K > 1 $ and $ L > 1$, or towards infinity if $ K < 1$ and $ L < 1 $. However, assuming $ K, L > 0$, we analyze based on which input is larger.
+
+2. **Comparing  K and L:**
+
+   - **Case 1:** If $ K > L$ , $ L^{-\rho} $ becomes negligible compared to $ K^{-\rho} $ as $ \rho \rightarrow \infty$.
+   - **Case 2:** If $ L > K$, $ K^{-\rho}$ becomes negligible compared to $L^{-\rho}$.
+   - **Case 3:** If $ K = L $, both terms are equal.
+
+3. **Simplifying the CES Function:**
+
+   - **Case 1 \($ K > L$ \):**
+
+     $$
+     Y \approx \left[ \alpha K^{-\rho} \right]^{-\frac{1}{\rho}} = \alpha^{-\frac{1}{\rho}} K
+     $$
+
+     As $ \rho \rightarrow \infty$, $ \alpha^{-\frac{1}{\rho}} \rightarrow 1$:
+
+     $$
+     Y \approx K
+     $$
+
+   - **Case 2 \($ L > K$ \):**
+
+     $$
+     Y \approx \left[ (1 - \alpha) L^{-\rho} \right]^{-\frac{1}{\rho}} = (1 - \alpha)^{-\frac{1}{\rho}} L
+     $$
+
+     As $ \rho \rightarrow \infty$, $ (1 - \alpha)^{-\frac{1}{\rho}} \rightarrow 1$:
+
+     $$
+     Y \approx L
+     $$
+
+   - **Case 3 \( $K = L$ \):**
+
+     $$
+     Y = \left[ \alpha K^{-\rho} + (1 - \alpha) K^{-\rho} \right]^{-\frac{1}{\rho}} = \left[ K^{-\rho} \right]^{-\frac{1}{\rho}} = K
+     $$
+
+#### **c. Conclusion:**
+
+As $ \rho \rightarrow \infty$, the CES production function approaches a **Leontief (Perfect Complement) Production Function**, where output \( Y \) is determined by the **minimum** of capital \( K \) and labor \( L \):
+
+$$
+Y = \min \left( K, L \right)
+$$
+
+This implies that inputs are **perfect complements**; increasing one input without increasing the other does not lead to an increase in output.
+
+
+### **4. Visual Representations and Implications**
+
+Understanding the behavior of the CES function across different  $\rho$  values is crucial for economic modeling. Below are visual representations to illustrate these concepts.
+
+#### **a. CES Function Graphs for Various  $\rho$  Values**
+
+To visualize how  $\rho $ affects the substitutability between capital and labor, consider plotting the CES function for different $ \rho$ values.
+ 
+```html
+## **Visualizing the CES Function for Different $\rho$ Values**
+
+Below are graphs illustrating the CES production function for various  $\rho $ values, highlighting the transition from Cobb-Douglas to perfect complements.
+
+<!-- Example Chart Placeholder -->
+<div class="chart-container">
+  <canvas id="rhoChart" style="display:block;"></canvas>
+</div>
+
+<script>
+  // Include Chart.js if not already included
+  // (Assuming Chart.js is already loaded in the main calculator script)
+
+  // Function to plot multiple CES functions with different rho values
+  function plotRhoVariations() {
+    const ctx = document.getElementById('rhoChart').getContext('2d');
+    const K_values = [];
+    const Y_alpha_0_5_rho_values = [];
+    const Y_alpha_0_5_rho_neg1_values = [];
+    const Y_alpha_0_5_rho_0_values = []; // Cobb-Douglas
+    const Y_alpha_0_5_rho_inf_values = []; // Perfect Complement
+
+    const alpha = 0.5;
+    const L = 50;
+    const rho_values = [-1, 0, 1, 5, 10];
+
+    for (let K = 10; K <= 100; K += 1) {
+      K_values.push(K);
+      rho_values.forEach(rho => {
+        if (rho === Infinity) {
+          Y_alpha_0_5_rho_inf_values.push(Math.min(K, L));
+        } else if (rho === 0) {
+          // Cobb-Douglas
+          Y_alpha_0_5_rho_values.push(Math.pow(K, alpha) * Math.pow(L, 1 - alpha));
+        } else {
+          // CES
+          const term1 = alpha * Math.pow(K, -rho);
+          const term2 = (1 - alpha) * Math.pow(L, -rho);
+          const Y = Math.pow(term1 + term2, -1 / rho);
+          Y_alpha_0_5_rho_values.push(Y);
+        }
+      });
+    }
+
+    const rhoLabels = ['\( \rho = -1 \)', '\( \rho = 0 \) (Cobb-Douglas)', '\( \rho = 1 \)', '\( \rho = 5 \)', '\( \rho = 10 \)', '\( \rho \rightarrow \infty \) (Perfect Complement)'];
+
+    // For simplicity, plotting only selected rho values
+    const selectedRhos = [-1, 0, 1, 5, 10, 'Infinity'];
+    const datasets = selectedRhos.map(rho => {
+      let data = [];
+      for (let K = 10; K <= 100; K += 1) {
+        if (rho === 'Infinity') {
+          data.push(Math.min(K, L));
+        } else if (rho === 0) {
+          data.push(Math.pow(K, alpha) * Math.pow(L, 1 - alpha));
+        } else {
+          const term1 = alpha * Math.pow(K, -rho);
+          const term2 = (1 - alpha) * Math.pow(L, -rho);
+          const Y = Math.pow(term1 + term2, -1 / rho);
+          data.push(Y);
+        }
+      }
+      let color;
+      switch(rho) {
+        case -1:
+          color = 'rgba(255, 99, 132, 1)'; // Red
+          break;
+        case 0:
+          color = 'rgba(54, 162, 235, 1)'; // Blue
+          break;
+        case 1:
+          color = 'rgba(255, 206, 86, 1)'; // Yellow
+          break;
+        case 5:
+          color = 'rgba(75, 192, 192, 1)'; // Green
+          break;
+        case 10:
+          color = 'rgba(153, 102, 255, 1)'; // Purple
+          break;
+        case 'Infinity':
+          color = 'rgba(255, 159, 64, 1)'; // Orange
+          break;
+        default:
+          color = 'rgba(0,0,0,1)';
+      }
+      return {
+        label: `\( \\rho = ${rho} \)`,
+        data: data,
+        borderColor: color,
+        backgroundColor: color.replace('1)', '0.2)'),
+        fill: false,
+        tension: 0.1
+      };
+    });
+
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: K_values,
+        datasets: datasets
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+          title: {
+            display: true,
+            text: 'CES Function Variations with Different \( \\rho \) Values',
+            font: {
+              size: 18,
+              weight: 'bold'
+            }
+          }
+        },
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'Capital K',
+              font: {
+                size: 14,
+                weight: 'bold'
+              }
+            }
+          },
+          y: {
+            title: {
+              display: true,
+              text: 'Output Y',
+              font: {
+                size: 14,
+                weight: 'bold'
+              }
+            },
+            beginAtZero: false
+          }
+        }
+      }
+    });
+  }
+
+  // Execute the plot after the page loads
+  document.addEventListener('DOMContentLoaded', plotRhoVariations);
+</script>
+
+## **Mathematical Derivations**
+
+Understanding the mathematical foundations of the CES function provides deeper insights into how different parameters influence production. Below are the detailed derivations for the Cobb-Douglas case and the behavior of the CES function as \( \rho \) approaches 0 and infinity.
+
+### **1. CES Production Function Overview**
+
+The **Constant Elasticity of Substitution (CES)** production function is given by:
+
+$$
+Y = \left[ \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right]^{-\frac{1}{\rho}}
+$$
+
+Where:
+- **\( Y \)**: Total Output
+- **\( K \)**: Capital Input
+- **\( L \)**: Labor Input
+- **\( \alpha \)**: Distribution Parameter (\( 0 < \alpha < 1 \))
+- **\( \rho \)**: Substitution Parameter
+
+The **Elasticity of Substitution (\( \sigma \))** is related to \( \rho \) by:
+
+$$
+\sigma = \frac{1}{1 + \rho}
+$$
+
+### **2. Derivation of the Cobb-Douglas Production Function (\( \rho \rightarrow 0 \))**
+
+The **Cobb-Douglas** production function is a special case of the CES function where the elasticity of substitution \( \sigma = 1 \), implying \( \rho = 0 \).
+
+#### **a. Starting with the CES Function:**
+
+$$
+Y = \left[ \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right]^{-\frac{1}{\rho}}
+$$
+
+#### **b. Taking the Limit as \( \rho \rightarrow 0 \):**
+
+Direct substitution leads to an indeterminate form \( 0 \times \infty \). To resolve this, we apply **L'Hopital's Rule**.
+
+1. **Rewriting the CES Function:**
+
+   Let \( f(\rho) = \left[ \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right]^{-\frac{1}{\rho}} \).
+
+2. **Taking Natural Logarithm:**
+
+   \[
+   \ln Y = -\frac{1}{\rho} \ln \left( \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right)
+   \]
+
+3. **Applying L'Hopital's Rule:**
+
+   We evaluate the limit as \( \rho \rightarrow 0 \):
+
+   \[
+   \lim_{\rho \to 0} \ln Y = \lim_{\rho \to 0} -\frac{1}{\rho} \ln \left( \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right)
+   \]
+
+   Recognizing this as \( \frac{0}{0} \) form, we differentiate numerator and denominator with respect to \( \rho \):
+
+   \[
+   \lim_{\rho \to 0} \ln Y = \lim_{\rho \to 0} -\frac{d}{d\rho} \ln \left( \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right) / \frac{d}{d\rho} \rho = \lim_{\rho \to 0} -\frac{\frac{d}{d\rho} \ln \left( \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right)}{1}
+   \]
+
+4. **Differentiating the Numerator:**
+
+   \[
+   \frac{d}{d\rho} \ln \left( \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right) = \frac{-\alpha K^{-\rho} \ln K - (1 - \alpha) L^{-\rho} \ln L}{\alpha K^{-\rho} + (1 - \alpha) L^{-\rho}}
+   \]
+
+5. **Substituting \( \rho = 0 \):**
+
+   As \( \rho \rightarrow 0 \), \( K^{-\rho} \rightarrow 1 \) and \( L^{-\rho} \rightarrow 1 \):
+
+   \[
+   \lim_{\rho \to 0} \ln Y = -\frac{-\alpha \ln K - (1 - \alpha) \ln L}{\alpha + (1 - \alpha)} = \alpha \ln K + (1 - \alpha) \ln L
+   \]
+
+6. **Exponentiating Both Sides:**
+
+   \[
+   Y = e^{\alpha \ln K + (1 - \alpha) \ln L} = K^{\alpha} L^{1 - \alpha}
+   \]
+
+#### **c. Conclusion:**
+
+As \( \rho \rightarrow 0 \), the CES production function converges to the Cobb-Douglas production function:
+
+$$
+Y = K^{\alpha} L^{1 - \alpha}
+$$
+
+### **3. Behavior of the CES Function as \( \rho \rightarrow \infty \)**
+
+Understanding the behavior of the CES function as \( \rho \) approaches infinity provides insights into the substitutability between capital and labor.
+
+#### **a. Starting with the CES Function:**
+
+$$
+Y = \left[ \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right]^{-\frac{1}{\rho}}
+$$
+
+#### **b. Analyzing the Limit as \( \rho \rightarrow \infty \):**
+
+1. **Understanding the Dominant Term:**
+
+   As \( \rho \) becomes very large, \( K^{-\rho} \) and \( L^{-\rho} \) tend towards 0 if \( K > 1 \) and \( L > 1 \), or towards infinity if \( K < 1 \) and \( L < 1 \). However, assuming \( K, L > 0 \), we analyze based on which input is larger.
+
+2. **Comparing \( K \) and \( L \):**
+
+   - **Case 1:** If \( K > L \), \( L^{-\rho} \) becomes negligible compared to \( K^{-\rho} \) as \( \rho \rightarrow \infty \).
+   - **Case 2:** If \( L > K \), \( K^{-\rho} \) becomes negligible compared to \( L^{-\rho} \).
+   - **Case 3:** If \( K = L \), both terms are equal.
+
+3. **Simplifying the CES Function:**
+
+   - **Case 1 (\( K > L \)):**
+
+     \[
+     Y \approx \left[ \alpha K^{-\rho} \right]^{-\frac{1}{\rho}} = \alpha^{-\frac{1}{\rho}} K
+     \]
+
+     As \( \rho \rightarrow \infty \), \( \alpha^{-\frac{1}{\rho}} \rightarrow 1 \):
+
+     \[
+     Y \approx K
+     \]
+
+   - **Case 2 (\( L > K \)):**
+
+     \[
+     Y \approx \left[ (1 - \alpha) L^{-\rho} \right]^{-\frac{1}{\rho}} = (1 - \alpha)^{-\frac{1}{\rho}} L
+     \]
+
+     As \( \rho \rightarrow \infty \), \( (1 - \alpha)^{-\frac{1}{\rho}} \rightarrow 1 \):
+
+     \[
+     Y \approx L
+     \]
+
+   - **Case 3 (\( K = L \)):**
+
+     \[
+     Y = \left[ \alpha K^{-\rho} + (1 - \alpha) K^{-\rho} \right]^{-\frac{1}{\rho}} = \left[ K^{-\rho} \right]^{-\frac{1}{\rho}} = K
+     \]
+
+#### **c. Conclusion:**
+
+As \( \rho \rightarrow \infty \), the CES production function approaches a **Leontief (Perfect Complement) Production Function**, where output \( Y \) is determined by the **minimum** of capital \( K \) and labor \( L \):
+
+$$
+Y = \min \left( K, L \right)
+$$
+
+This implies that inputs are **perfect complements**; increasing one input without increasing the other does not lead to an increase in output.
+
+### **4. Visual Representations and Implications**
+
+Understanding the behavior of the CES function across different \( \rho \) values is crucial for economic modeling. Below are visual representations to illustrate these concepts.
+
+#### **a. CES Function Graphs for Various \( \rho \) Values**
+
+To visualize how \( \rho \) affects the substitutability between capital and labor, consider plotting the CES function for different \( \rho \) values.
+
+```html
+## **Visualizing the CES Function for Different \( \rho \) Values**
+
+Below are graphs illustrating the CES production function for various \( \rho \) values, highlighting the transition from Cobb-Douglas to perfect complements.
+
+<!-- Example Chart Placeholder -->
+<div class="chart-container">
+  <canvas id="rhoChart" style="display:block;"></canvas>
+</div>
+
+<script>
+  // Include Chart.js if not already included
+  // (Assuming Chart.js is already loaded in the main calculator script)
+
+  // Function to plot multiple CES functions with different rho values
+  function plotRhoVariations() {
+    const ctx = document.getElementById('rhoChart').getContext('2d');
+    const K_values = [];
+    const Y_alpha_0_5_rho_values = [];
+    const Y_alpha_0_5_rho_neg1_values = [];
+    const Y_alpha_0_5_rho_0_values = []; // Cobb-Douglas
+    const Y_alpha_0_5_rho_inf_values = []; // Perfect Complement
+    const alpha = 0.5;
+    const L = 50;
+    const rho_values = [-1, 0, 1, 5, 10];
+    for (let K = 10; K <= 100; K += 1) {
+      K_values.push(K);
+      rho_values.forEach(rho => {
+        if (rho === Infinity) {
+          Y_alpha_0_5_rho_inf_values.push(Math.min(K, L));
+        } else if (rho === 0) {
+          // Cobb-Douglas
+          Y_alpha_0_5_rho_values.push(Math.pow(K, alpha) * Math.pow(L, 1 - alpha));
+        } else {
+          // CES
+          const term1 = alpha * Math.pow(K, -rho);
+          const term2 = (1 - alpha) * Math.pow(L, -rho);
+          const Y = Math.pow(term1 + term2, -1 / rho);
+          Y_alpha_0_5_rho_values.push(Y);
+        }
+      });
+    }
+    const rhoLabels = ['\( \rho = -1 \)', '\( \rho = 0 \) (Cobb-Douglas)', '\( \rho = 1 \)', '\( \rho = 5 \)', '\( \rho = 10 \)', '\( \rho \rightarrow \infty \) (Perfect Complement)'];
+    // For simplicity, plotting only selected rho values
+    const selectedRhos = [-1, 0, 1, 5, 10, 'Infinity'];
+    const datasets = selectedRhos.map(rho => {
+      let data = [];
+      for (let K = 10; K <= 100; K += 1) {
+        if (rho === 'Infinity') {
+          data.push(Math.min(K, L));
+        } else if (rho === 0) {
+          data.push(Math.pow(K, alpha) * Math.pow(L, 1 - alpha));
+        } else {
+          const term1 = alpha * Math.pow(K, -rho);
+          const term2 = (1 - alpha) * Math.pow(L, -rho);
+          const Y = Math.pow(term1 + term2, -1 / rho);
+          data.push(Y);
+        }
+      }
+      let color;
+      switch(rho) {
+        case -1:
+          color = 'rgba(255, 99, 132, 1)'; // Red
+          break;
+        case 0:
+          color = 'rgba(54, 162, 235, 1)'; // Blue
+          break;
+        case 1:
+          color = 'rgba(255, 206, 86, 1)'; // Yellow
+          break;
+        case 5:
+          color = 'rgba(75, 192, 192, 1)'; // Green
+          break;
+        case 10:
+          color = 'rgba(153, 102, 255, 1)'; // Purple
+          break;
+        case 'Infinity':
+          color = 'rgba(255, 159, 64, 1)'; // Orange
+          break;
+        default:
+          color = 'rgba(0,0,0,1)';
+      }
+      return {
+        label: `\( \\rho = ${rho} \)`,
+        data: data,
+        borderColor: color,
+        backgroundColor: color.replace('1)', '0.2)'),
+        fill: false,
+        tension: 0.1
+      };
+    });
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: K_values,
+        datasets: datasets
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+          title: {
+            display: true,
+            text: 'CES Function Variations with Different \( \\rho \) Values',
+            font: {
+              size: 18,
+              weight: 'bold'
+            }
+          }
+        },
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'Capital K',
+              font: {
+                size: 14,
+                weight: 'bold'
+              }
+            }
+          },
+          y: {
+            title: {
+              display: true,
+              text: 'Output Y',
+              font: {
+                size: 14,
+                weight: 'bold'
+              }
+            },
+            beginAtZero: false
+          }
+        }
+      }
+    });
+  }
+
+  // Execute the plot after the page loads
+  document.addEventListener('DOMContentLoaded', plotRhoVariations);
 </script>
