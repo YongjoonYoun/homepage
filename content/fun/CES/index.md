@@ -449,10 +449,10 @@ Direct substitution leads to an indeterminate form \( $0 \times \infty $\). To r
    Recognizing this as  $\frac{0}{0} $ form, we differentiate numerator and denominator with respect to $ \rho$ :
 
    $$
-   \lim_{\rho \to 0} \ln Y = 
+   \lim_{\rho \to 0} \ln Y 
    $$
    $$
-   \lim_{\rho \to 0} -\frac{d}{d\rho} \ln \left( \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right) / \frac{d}{d\rho} \rho 
+=   \lim_{\rho \to 0} -\frac{d}{d\rho} \ln \left( \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right) / \frac{d}{d\rho} \rho 
    $$
    $$
 =   \lim_{\rho \to 0} -\frac{\frac{d}{d\rho} \ln \left( \alpha K^{-\rho} + (1 - \alpha) L^{-\rho} \right)}{1}
