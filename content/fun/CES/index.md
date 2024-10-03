@@ -1,3 +1,134 @@
 ## CES Function Graphic Calculator
 
-{{< ces-calculator >}}
+{{< ces-calculator >}}## CES Function Graphic Calculator
+
+<div class="calculator">
+  <h2>CES Function Graphic Calculator</h2>
+  
+  <label for="alpha">ес (0 < ес < 1):</label>
+  <input type="number" id="alpha" step="0.01" min="0.01" max="0.99" placeholder="Enter ес">
+
+  <label for="rho">её (rho):</label>
+  <input type="number" id="rho" step="0.01" placeholder="Enter её">
+
+  <label for="K">K (Capital):</label>
+  <input type="number" id="K" step="0.01" min="0" placeholder="Enter K">
+
+  <label for="L">L (Labor):</label>
+  <input type="number" id="L" step="0.01" min="0" placeholder="Enter L">
+
+  <button onclick="calculateAndPlot()">Calculate & Plot Y</button>
+
+  <div id="result" class="result" style="display:none;"></div>
+
+  <div class="chart-container">
+    <canvas id="cesChart" style="display:none;"></canvas>
+  </div>
+</div>
+
+<!-- Include Chart.js library -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  let cesChartInstance = null;
+
+  function calculateAndPlot() {
+    // Retrieve input values
+    const alpha = parseFloat(document.getElementById('alpha').value);
+    const rho = parseFloat(document.getElementById('rho').value);
+    const K = parseFloat(document.getElementById('K').value);
+    const L = parseFloat(document.getElementById('L').value);
+
+    // Input validation
+    if (isNaN(alpha) || alpha <= 0 || alpha >= 1) {
+      alert('Please enter a valid ес between 0 and 1.');
+      return;
+    }
+    if (isNaN(rho)) {
+      alert('Please enter a valid её.');
+      return;
+    }
+    if (isNaN(K) || K <= 0) {
+      alert('Please enter a valid positive K.');
+      return;
+    }
+    if (isNaN(L) || L <= 0) {
+      alert('Please enter a valid positive L.');
+      return;
+    }
+
+    // CES function calculation
+    const term1 = alpha * Math.pow(K, -rho);
+    const term2 = (1 - alpha) * Math.pow(L, -rho);
+    const Y = Math.pow(term1 + term2, -1 / rho);
+
+    // Display the result
+    const resultDiv = document.getElementById('result');
+    resultDiv.style.display = 'block';
+    resultDiv.innerHTML = `Calculated Output Y = <span style="color:#007ACC;">${Y.toFixed(4)}</span>`;
+
+    // Prepare data for plotting Y vs K
+    const dataK = [];
+    const dataY = [];
+    const K_min = K * 0.5;
+    const K_max = K * 1.5;
+    const step = (K_max - K_min) / 20;
+
+    for (let k = K_min; k <= K_max; k += step) {
+      const term1Plot = alpha * Math.pow(k, -rho);
+      const Y_plot = Math.pow(term1Plot + term2, -1 / rho);
+      dataK.push(k.toFixed(2));
+      dataY.push(Y_plot.toFixed(4));
+    }
+
+    // Plot the chart
+    const ctx = document.getElementById('cesChart').getContext('2d');
+    document.getElementById('cesChart').style.display = 'block';
+
+    if (cesChartInstance) {
+      cesChartInstance.destroy();
+    }
+
+    cesChartInstance = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: dataK,
+        datasets: [{
+          label: 'Output Y vs Capital K',
+          data: dataY,
+          borderColor: 'rgba(75, 192, 192, 1)',
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          fill: true,
+          tension: 0.1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+          title: {
+            display: true,
+            text: 'CES Function: Output Y vs Capital K'
+          }
+        },
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'Capital K'
+            }
+          },
+          y: {
+            title: {
+              display: true,
+              text: 'Output Y'
+            },
+            beginAtZero: false
+          }
+        }
+      }
+    });
+  }
+</script>
