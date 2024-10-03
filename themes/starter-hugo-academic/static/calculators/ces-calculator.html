@@ -1,25 +1,198 @@
-{{- define "main" -}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CES Function Graphic Calculator</title>
+  <style>
+    /* Basic styling for the calculator */
+    .calculator {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      border: 2px solid #007ACC;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+    }
+    .calculator h2 {
+      text-align: center;
+      color: #007ACC;
+    }
+    .calculator label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    .calculator input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .calculator button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 20px;
+      background-color: #007ACC;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .calculator button:hover {
+      background-color: #005F99;
+    }
+    .result, .chart-container {
+      margin-top: 20px;
+    }
+    .result {
+      padding: 15px;
+      background-color: #e6f7ff;
+      border-left: 5px solid #007ACC;
+      border-radius: 4px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .chart-container {
+      position: relative;
+      height: 400px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
 
-{{/* Check that user fully installed Wowchemy. */}}
-{{/* Commented out to allow user to have no params.yaml and just use the defaults. */}}
-{{/* if not (isset site.Params "seo") */}}
-  {{/* errorf "Please complete the installation of Wowchemy by following the steps at https://wowchemy.com/docs/install/" */}}
-{{/* end */}}
+<div class="calculator">
+  <h2>CES Function Graphic Calculator</h2>
+  
+  <label for="alpha">ес (0 < ес < 1):</label>
+  <input type="number" id="alpha" step="0.01" min="0.01" max="0.99" placeholder="Enter ес">
 
-{{/* Deprecation warnings */}}
+  <label for="rho">её (rho):</label>
+  <input type="number" id="rho" step="0.01" placeholder="Enter её">
 
-{{/* v4.5: Address changed from string to map. */}}
-{{ if isset site.Params "address" }}
-{{ if eq (reflect.IsMap site.Params.address) false }}
-  {{ errorf "Please upgrade the `address` field in `config/_default/params.toml`. Refer to all of the Breaking Changes in v4.5 at https://wowchemy.com/updates/v4.5.0/" }}
-{{ end }}
-{{ end }}
+  <label for="K">K (Capital):</label>
+  <input type="number" id="K" step="0.01" min="0" placeholder="Enter K">
 
-{{/* Generate homepage. */}}
-{{ if eq .Type "book" }}
-  {{ partial "book_layout.html" . }}
-{{ else }}
-  {{ partial "widget_page.html" . }}
-{{ end }}
+  <label for="L">L (Labor):</label>
+  <input type="number" id="L" step="0.01" min="0" placeholder="Enter L">
 
-{{- end -}}
+  <button onclick="calculateAndPlot()">Calculate & Plot Y</button>
+
+  <div id="result" class="result" style="display:none;"></div>
+
+  <div class="chart-container">
+    <canvas id="cesChart" style="display:none;"></canvas>
+  </div>
+</div>
+
+<!-- Include Chart.js library -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  let cesChartInstance = null;
+
+  function calculateAndPlot() {
+    // Retrieve input values
+    const alpha = parseFloat(document.getElementById('alpha').value);
+    const rho = parseFloat(document.getElementById('rho').value);
+    const K = parseFloat(document.getElementById('K').value);
+    const L = parseFloat(document.getElementById('L').value);
+
+    // Input validation
+    if (isNaN(alpha) || alpha <= 0 || alpha >= 1) {
+      alert('Please enter a valid ес between 0 and 1.');
+      return;
+    }
+    if (isNaN(rho)) {
+      alert('Please enter a valid её.');
+      return;
+    }
+    if (isNaN(K) || K <= 0) {
+      alert('Please enter a valid positive K.');
+      return;
+    }
+    if (isNaN(L) || L <= 0) {
+      alert('Please enter a valid positive L.');
+      return;
+    }
+
+    // CES function calculation
+    const term1 = alpha * Math.pow(K, -rho);
+    const term2 = (1 - alpha) * Math.pow(L, -rho);
+    const Y = Math.pow(term1 + term2, -1 / rho);
+
+    // Display the result
+    const resultDiv = document.getElementById('result');
+    resultDiv.style.display = 'block';
+    resultDiv.innerHTML = `Calculated Output Y = <span style="color:#007ACC;">${Y.toFixed(4)}</span>`;
+
+    // Prepare data for plotting Y vs K
+    const dataK = [];
+    const dataY = [];
+    const K_min = K * 0.5;
+    const K_max = K * 1.5;
+    const step = (K_max - K_min) / 20;
+
+    for (let k = K_min; k <= K_max; k += step) {
+      const term1Plot = alpha * Math.pow(k, -rho);
+      const Y_plot = Math.pow(term1Plot + term2, -1 / rho);
+      dataK.push(k.toFixed(2));
+      dataY.push(Y_plot.toFixed(4));
+    }
+
+    // Plot the chart
+    const ctx = document.getElementById('cesChart').getContext('2d');
+    document.getElementById('cesChart').style.display = 'block';
+
+    if (cesChartInstance) {
+      cesChartInstance.destroy();
+    }
+
+    cesChartInstance = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: dataK,
+        datasets: [{
+          label: 'Output Y vs Capital K',
+          data: dataY,
+          borderColor: 'rgba(75, 192, 192, 1)',
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          fill: true,
+          tension: 0.1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+          title: {
+            display: true,
+            text: 'CES Function: Output Y vs Capital K'
+          }
+        },
+        scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'Capital K'
+            }
+          },
+          y: {
+            title: {
+              display: true,
+              text: 'Output Y'
+            },
+            beginAtZero: false
+          }
+        }
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
