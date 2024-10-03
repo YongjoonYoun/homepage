@@ -18,38 +18,38 @@ $$
 - **\( Y \)**: Total output
 - **\( K \)**: Capital input
 - **\( L \)**: Labor input
-- **\( \alpha \)**: Distribution parameter (0 < \( \alpha \) < 1)
-- **\( \rho \)**: Substitution parameter related to the elasticity of substitution
+- **\( $ \alpha $ \)**: Distribution parameter (0 <  $\alpha $ < 1)
+- **\( $\rho $ \)**: Substitution parameter related to the elasticity of substitution
 
 ### **Parameter Explanations**
 
-1. **Distribution Parameter (\( \alpha \))**
+1. **Distribution Parameter \( $\alpha$ \)**
    - **Definition**: Determines the weight or share of capital in the production process.
-   - **Range**: \( 0 < \alpha < 1 \)
+   - **Range**: \( 0 < $\alpha $< 1 \)
    - **Interpretation**:
-     - **Higher \( \alpha \)**: Greater emphasis on capital, implying that capital plays a more significant role in production.
-     - **Lower \( \alpha \)**: Greater emphasis on labor, suggesting that labor is more crucial.
+     - **Higher \( $\alpha $\)**: Greater emphasis on capital, implying that capital plays a more significant role in production.
+     - **Lower \( $\alpha$ \)**: Greater emphasis on labor, suggesting that labor is more crucial.
 
-2. **Substitution Parameter (\( \rho \))**
+2. **Substitution Parameter \( $\rho$ \)**
    - **Definition**: Governs the ease with which capital and labor can substitute for each other.
-   - **Relationship with Elasticity of Substitution (\( \sigma \))**:
+   - **Relationship with Elasticity of Substitution \( $\sigma  $ \)**:
      $$
      \sigma = \frac{1}{1 + \rho}
      $$
    - **Interpretation**:
-     - **\( \rho = 0 \)**: Perfect substitutes (Cobb-Douglas production function).
-     - **\( \rho > 0 \)**: Limited substitutability; inputs are less easily replaceable.
-     - **\( \rho < 0 \)**: High substitutability; inputs can be easily interchanged.
+     - **\( $\rho $= 0 \)**: Perfect substitutes (Cobb-Douglas production function).
+     - **\( $\rho$ > 0 \)**: Limited substitutability; inputs are less easily replaceable.
+     - **\( $\rho$ < 0 \)**: High substitutability; inputs can be easily interchanged.
 
-### **Elasticity of Substitution (\( \sigma \))**
+### **Elasticity of Substitution \( $\sigma$ \)**
 
 $$
 \sigma = \frac{1}{1 + \rho}
 $$
 
-- **\( \sigma > 1 \)**: High substitutability between inputs.
-- **\( \sigma = 1 \)**: Cobb-Douglas (constant returns to substitution).
-- **\( \sigma < 1 \)**: Low substitutability between inputs.
+- **\( $\sigma > 1$ \)**: High substitutability between inputs.
+- **\( $\sigma = 1$ \)**: Cobb-Douglas (constant returns to substitution).
+- **\( $\sigma < 1 $\)**: Low substitutability between inputs.
 
 ### **Practical Examples**
 
@@ -57,11 +57,11 @@ $$
 
 **Scenario**: A manufacturing firm considers investing in automated machinery to replace some of its manual labor.
 
-- **High Elasticity of Substitution (\( \sigma > 1 \))**:
+- **High Elasticity of Substitution \( $\sigma $> 1 \)**:
   - **Implication**: The firm can easily substitute labor with capital.
   - **Outcome**: Increased automation leads to higher productivity with minimal loss in output, as machinery effectively replaces workers.
 
-- **Low Elasticity of Substitution (\( \sigma < 1 \))**:
+- **Low Elasticity of Substitution \($ \sigma$ < 1 \)**:
   - **Implication**: Substituting labor with capital is challenging.
   - **Outcome**: Investments in machinery yield limited productivity gains, and the firm may struggle to reduce labor costs effectively.
 
@@ -69,18 +69,18 @@ $$
 
 **Scenario**: A hospital evaluates the integration of advanced diagnostic equipment to reduce the reliance on specialized medical staff.
 
-- **High Elasticity of Substitution (\( \sigma > 1 \))**:
+- **High Elasticity of Substitution \( $\sigma $> 1 \)**:
   - **Implication**: Medical technology can effectively substitute for healthcare professionals.
   - **Outcome**: Improved diagnostic accuracy and efficiency with reduced need for extensive medical staffing.
 
-- **Low Elasticity of Substitution (\( \sigma < 1 \))**:
+- **Low Elasticity of Substitution \($ \sigma $< 1 \)**:
   - **Implication**: Technology cannot easily replace healthcare professionals.
   - **Outcome**: Limited improvements in diagnostic processes, maintaining the necessity for a skilled medical workforce.
 
 ---
 # CES Function Graphic Calculator
 
-Use the interactive calculator below to explore how changes in capital (K) and labor (L) affect total output (Y) based on the CES production function. Adjust the parameters \( \alpha \) and \( \rho \) to see different substitution scenarios and understand their economic implications.
+Use the interactive calculator below to explore how changes in capital (K) and labor (L) affect total output (Y) based on the CES production function. Adjust the parameters \( $ \alpha $ \) and \( $\rho$ \) to see different substitution scenarios and understand their economic implications.
 
 <!-- CES Calculator Container -->
 <div class="calculator">
