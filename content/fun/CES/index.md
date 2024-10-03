@@ -15,11 +15,13 @@ $$
 Y = \left[ \alpha K^{-\rho} + (1 - \alpha) L^{-\rho}\right]^{-\frac{1}{\rho}}
 $$
 
+$$
 - **\( Y \)**: Total output
 - **\( K \)**: Capital input
 - **\( L \)**: Labor input
 - **\( \alpha \)**: Distribution parameter (0 < \( \alpha \) < 1)
 - **\( \rho \)**: Substitution parameter related to the elasticity of substitution
+$$
 
 ### **Parameter Explanations**
 
