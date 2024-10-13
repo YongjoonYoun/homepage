@@ -37,3 +37,11 @@ p {
     border-radius: 50%; /* Make the image circular */
     margin: 20px auto;
 }
+
+png.avatar, .author-avatar, .home-avatar {
+    width: 300px !important;  /* Make sure to use !important to enforce override */
+    height: 300px !important;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+}

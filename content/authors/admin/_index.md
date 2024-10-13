@@ -16,7 +16,6 @@ highlight_name: true
 interests:
 - Labor Economics
 - Health & Aging Economics
-- Public Economics
 
 organizations:
 - name: The Ohio State University
