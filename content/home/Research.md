@@ -1,20 +1,15 @@
 ---
-# An instance of the Pages widget.
-# Documentation: https://wowchemy.com/docs/page-builder/
 widget: pages
 
-# This file represents a page section.
 headless: true
 active: true
 
-# Order that this section appears on the page.
 weight: 40
 
 title: Working Papers
 subtitle: 
 
 content:
-  # Filter on criteria
   filters:
     folders:
       - research
@@ -34,6 +29,6 @@ content:
 design:
   # Choose a view for the listings:
   view: citation
-  columns: '4'
+  columns: '2'
 ---
 

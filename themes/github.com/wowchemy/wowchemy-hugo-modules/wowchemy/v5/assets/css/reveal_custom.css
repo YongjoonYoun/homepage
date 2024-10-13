@@ -1,0 +1,32 @@
+/* CSS for better alignment of working paper content */
+.widget-pages .page-content,
+.widget .content {
+    text-align: justify;  /* Ensure text is justified for better alignment */
+    margin: 0 auto;       /* Center the content within its container */
+    max-width: 800px;     /* Limit the width for better readability */
+    line-height: 1.6;     /* Increase line height to improve readability */
+}
+
+/* Adjust margin and padding for cleaner layout */
+h2, h3 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+p {
+    margin-bottom: 1em;  /* Add spacing between paragraphs */
+}
+
+/* Customize how links are displayed */
+.links {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.links a {
+    padding: 0.5em;
+    margin-right: 10px;
+    text-decoration: none;
+    color: #2e7d32;  /* Custom color for links to match theme */
+}

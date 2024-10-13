@@ -5,10 +5,10 @@
 
 # Appearance
 appearance:
-  theme_day: Strawberry
+  theme_day: Minimal
   theme_night: Minimal
-  font: Minimal
-  font_size: l
+  font: lato
+  font_size: m
 
 # SEO
 
@@ -17,14 +17,13 @@ marketing:
     site_type: Person
     local_business_type: ''
     org_name: ''
-    description: ''
+    description: 'Researcher in Economics focusing on labor, health, and aging.'
     twitter: ''
   analytics:
     google_analytics: ''
     baidu_tongji: ''
   verification:
     google: 'google-site-verification=X0LQ9NpJIqseg-YdvoT_VQ3v6ctopsgWS7By_xTowSA'
-    baidu: ''
 
 # Site header
 
@@ -35,7 +34,7 @@ header:
     show_logo: true
     show_language: false
     show_day_night: true
-    show_search: true
+    show_search: false
     highlight_active_link: true
 
 # Site footer
@@ -77,32 +76,21 @@ features:
     shape: square
   comment:
     provider: ''
-    disqus:
-      shortname: ''
-      show_count: true
-    commento:
-      url: ''
   search:
     provider: wowchemy
-    algolia:
-      app_id: ''
-      api_key: ''
-      index_name: ''
-      show_logo: false
   map:
     provider: ''
-    api_key: ''
-    zoom: 15
 
 # Extensions
-
 extensions:
   cms:
     branch: main
     local_backend: false
   academicons:
     enable: false
-
+  css:
+    custom_css: ["css/custom.css"]
+    
 # Security
 
 security:
