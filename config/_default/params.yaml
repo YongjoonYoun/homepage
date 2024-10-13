@@ -7,8 +7,8 @@
 appearance:
   theme_day: Minimal
   theme_night: Minimal
-  font: Merriweather
-  font_size: l
+  font: native
+  font_size: m
 
 
 # SEO
