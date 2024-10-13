@@ -21,8 +21,8 @@
   {{/* Avatar Image in the Middle */}}
   {{ if $avatar }}
   <div class="avatar-section" style="margin-bottom: 20px;">
-    {{ $avatar_image := $avatar.Fill "270x400 Center" }}
-    <img class="avatar {{if eq $avatar_shape "square"}}avatar-square{{else}}avatar-circle{{end}}" src="{{ $avatar_image.RelPermalink }}" alt="{{ $person_page.Title }}" style="display: block; margin: 0 auto; max-width: 100%; height: auto; width: 270px;">
+    {{ $avatar_image := $avatar.Fill "320x400 Center" }}
+    <img class="avatar {{if eq $avatar_shape "square"}}avatar-square{{else}}avatar-circle{{end}}" src="{{ $avatar_image.RelPermalink }}" alt="{{ $person_page.Title }}" style="display: block; margin: 0 auto; max-width: 100%; height: auto; width: 320px;">
   </div>
   {{ end }}
 
@@ -30,10 +30,14 @@
   <div class="intro-section" style="max-width: 800px; padding: 0 20px;">
     {{ with $page.Title }}
       <h1 class="hero-title" style="font-weight: bold; margin-bottom: 15px;">{{ . | markdownify }}</h1>
+    {{ else }}
+      <h1 class="hero-title" style="font-weight: bold; margin-bottom: 15px;">Default Title: Please update the page title.</h1>
     {{ end }}
 
     {{ with $page.Content }}
       <div class="hero-lead" style="margin-bottom: 20px;">{{ . | markdownify }}</div>
+    {{ else }}
+      <div class="hero-lead" style="margin-bottom: 20px;">Default content: Please update the page content.</div>
     {{ end }}
 
     {{/* Call-to-action link */}}
