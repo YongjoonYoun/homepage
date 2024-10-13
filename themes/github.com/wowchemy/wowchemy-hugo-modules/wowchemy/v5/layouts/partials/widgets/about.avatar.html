@@ -2,10 +2,19 @@
 {{ $page := .page }}
 {{ $author_page := .author_page }}
 
-<div class="container hero-section" style="display: flex; align-items: center; justify-content: space-between; margin-top: 50px;">
+<div class="container hero-section" style="display: flex; align-items: center; justify-content: center; flex-direction: column; margin-top: 50px; text-align: center;">
   
-  {{/* Left Side: Introduction and Text */}}
-  <div class="intro-section" style="flex: 1; padding-right: 20px;">
+  {{/* Avatar Image in the Middle */}}
+  {{ $avatar := ($author_page.Resources.ByType "image").GetMatch "*avatar*" }}
+  {{ if $avatar }}
+  <div class="avatar-section" style="margin-bottom: 20px;">
+    {{ $avatar_image := $avatar.Fill "270x400 Center" }}
+    <img src="{{ $avatar_image.RelPermalink }}" alt="{{ $author_page.Title }}" style="display: block; margin: 0 auto; max-width: 100%; height: auto; width: 270px;">
+  </div>
+  {{ end }}
+
+  {{/* Introduction Text Below the Avatar */}}
+  <div class="intro-section" style="max-width: 800px; padding: 0 20px;">
     {{ with $page.Title }}
       <h1 class="hero-title" style="font-weight: bold; margin-bottom: 15px;">{{ . | markdownify }}</h1>
     {{ end }}
@@ -45,14 +54,5 @@
     <p class="hero-note text-muted" style="margin-top: 10px;">{{ .label | markdownify | emojify | safeHTML }}</p>
     {{ end }}
   </div>
-
-  {{/* Right Side: Avatar Image */}}
-  {{ $avatar := ($author_page.Resources.ByType "image").GetMatch "*avatar*" }}
-  {{ if $avatar }}
-  <div class="avatar-section" style="flex: 0 0 270px; text-align: center;">
-    {{ $avatar_image := $avatar.Fill "270x400 Center" }}
-    <img src="{{ $avatar_image.RelPermalink }}" alt="{{ $author_page.Title }}" style="display: block; margin: 0 auto; width: 270px; height: 400px;">
-  </div>
-  {{ end }}
 
 </div>
