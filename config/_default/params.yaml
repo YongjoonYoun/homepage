@@ -90,7 +90,7 @@ extensions:
   academicons:
     enable: false
   css:
-    custom_css: ["css/custom.css"]
+    custom_css: ["css/reveal_custom.css"]
     
 # Security
 

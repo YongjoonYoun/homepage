@@ -30,3 +30,10 @@ p {
     text-decoration: none;
     color: #2e7d32;  /* Custom color for links to match theme */
 }
+
+.author-avatar {
+    width: 250px;  /* Set the width to desired size */
+    height: 250px; /* Ensure the height is consistent */
+    border-radius: 50%; /* Make the image circular */
+    margin: 20px auto;
+}
