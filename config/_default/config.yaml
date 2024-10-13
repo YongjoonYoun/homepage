@@ -48,7 +48,7 @@ outputs:
   section: [HTML, RSS]
 imaging:
   resampleFilter: lanczos
-  quality: 75
+  quality: 85
   anchor: smart
 timeout: 600000
 taxonomies:
@@ -72,7 +72,25 @@ security:
 sitemap:
   _merge: deep
   
+############################
+## MATH SUPPORT
+############################
 math:
   enable: true
   engine: MathJax
+
+############################
+## THEME CUSTOMIZATIONS
+############################
+
+  homepage:
+    show_posts: false # Disable blog posts on the homepage
+    hero_section:
+      image_size: large # Increase profile picture size
+      text_align: center
+      max_width: 800px
+  research_page:
+    view: list
+    columns: 1 # Display working papers as a list for clarity
+    show_download_links: true # Add PDF download links for each paper
 
