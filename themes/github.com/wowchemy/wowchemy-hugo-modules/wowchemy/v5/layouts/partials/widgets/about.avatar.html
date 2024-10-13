@@ -1,27 +1,26 @@
-
 {{ $ := .root }}
 {{ $page := .page }}
 
 {{ $author := "" }}
 {{ if .author }}
-{{ $author = .author }}
+  {{ $author = .author }}
 {{ else }}
-{{ $author = $page.Params.author }}
+  {{ $author = $page.Params.author }}
 {{end}}
 
 {{ $person_page_path := (printf "/authors/%s" $author) }}
 {{ $person_page := site.GetPage $person_page_path }}
 {{ if not $person_page }}
-{{ errorf "Could not find an author page at `%s`. Please check the value of `author` in your About widget and create an associated author page if one does not already exist. See https://wowchemy.com/docs/page-builder/#about " $person_page_path }}
+  {{ errorf "Could not find an author page at `%s`. Please check the value of `author` in your About widget and create an associated author page if one does not already exist. See https://wowchemy.com/docs/page-builder/#about " $person_page_path }}
 {{end}}
 {{ $person := $person_page.Params }}
 {{ $avatar := ($person_page.Resources.ByType "image").GetMatch "*avatar*" }}
 {{ $avatar_shape := site.Params.features.avatar.shape | default "circle" }}
 
-<div id="profile">
-
+<div id="profile" class="text-center">
+  
   {{ if $avatar }}
-  <div class="avatar-wrapper text-center mb-4">
+  <div class="avatar-wrapper d-flex justify-content-center">
     {{ $avatar_image := $avatar.Fill "350x400 Center" }}
     <img class="avatar {{if eq $avatar_shape "square"}}avatar-square{{else}}avatar-circle{{end}}" src="{{ $avatar_image.RelPermalink }}" alt="{{$person_page.Title}}"
          width="{{ $avatar_image.Width }}" height="{{ $avatar_image.Height }}">
@@ -29,8 +28,7 @@
   </div>
   {{ end }}
 
-  <div class="portrait-title text-center">
-
+  <div class="portrait-title mt-3">
     <h2>
       {{- if $person.name_pronunciation -}}
         <ruby>
@@ -53,7 +51,7 @@
     {{ end }}
   </div>
 
-  <ul class="network-icon d-flex justify-content-center mt-3" aria-hidden="true">
+  <ul class="network-icon" aria-hidden="true">
     {{ range $person.social }}
     {{ $pack := or .icon_pack "fas" }}
     {{ $pack_prefix := $pack }}
@@ -69,7 +67,7 @@
     {{ else if in (slice "http" "https") $scheme }}
       {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
     {{ end }}
-    <li class="px-2">
+    <li>
       <a href="{{ $link | safeURL }}" {{ $target | safeHTMLAttr }} aria-label="{{ .icon }}"
          {{ with .label }} data-toggle="tooltip" data-placement="top" title="{{.}}"{{ end }}>
         <i class="{{ $pack }} {{ $pack_prefix }}-{{ .icon }} big-icon"></i>
@@ -79,7 +77,7 @@
   </ul>
 
   {{ with $page.Content }}
-  <div class="article-style pt-1 text-center">
+  <div class="article-style pt-3" style="text-align: justify;">
     {{ . }}
   </div>
   {{ end }}
