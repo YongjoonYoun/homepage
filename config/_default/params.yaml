@@ -109,6 +109,8 @@ homepage:
     image_size: large # Increase profile picture size
     text_align: center
     max_width: 800px
+    align: center # Add this to ensure the hero section content (avatar + text) is centered
+    layout: "vertical" # This helps ensure the avatar is above the text
 research_page:
   view: list
   columns: 1 # Display working papers as a list for clarity
