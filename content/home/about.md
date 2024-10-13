@@ -7,7 +7,7 @@ headless: true
 
 weight: 20
 
-title: "About Me"
+title: ""
 
 title_size: "small"
 
