@@ -1,69 +1,76 @@
 {{ $ := .root }}
 {{ $page := .page }}
-{{ $author_page := .author_page }}
+{{ $bg := $page.Params.design.background }}
 
-<div class="hero-section text-center">
+{{ if $page.Params.hero_media }}
+<div class="row">
+  <div class="col-12 col-md-6 text-center text-md-left">
+{{ end }}
 
-  {{/* Hero Avatar Image */}}
-  {{ $avatar := ($author_page.Resources.ByType "image").GetMatch "*avatar*" }}
-  {{ if $avatar }}
-    <div class="hero-avatar">
-      <img src="{{ $avatar.RelPermalink }}" alt="{{ $author_page.Title }}" style="display: block; margin: 0 auto; width: 150px; height: auto; border-radius: 50%; margin-bottom: 20px;">
-    </div>
-  {{ end }}
-
-  {{/* Hero Title */}}
-  {{ with $page.Title }}
-    <h1 class="hero-title" style="font-weight: bold; margin-bottom: 15px;">{{ . | markdownify }}</h1>
-  {{ end }}
-
-  {{/* Hero Lead Text */}}
-  {{ with $page.Content }}
-    <div class="hero-lead" style="margin-bottom: 20px;">{{ . | markdownify }}</div>
-  {{ end }}
-
-  {{/* Call-to-action link */}}
-  {{ if $page.Params.cta.url }}
-    {{ $link := $page.Params.cta.url }}
-    {{ $scheme := (urls.Parse $link).Scheme }}
-    {{ $target := "" }}
-    {{ if not $scheme }}
-      {{ $link = $link | relLangURL }}
-    {{ else if in (slice "http" "https") $scheme }}
-      {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
+    {{ with $page.Title }}
+      <h1 class="hero-title">{{ . | markdownify }}</h1>
     {{ end }}
-    <a href="{{ $link | safeURL }}" {{ $target | safeHTMLAttr }} class="btn btn-primary" style="background-color: #8b0000; color: #ffffff; padding: 10px 20px; text-decoration: none;">{{ $page.Params.cta.label | markdownify | emojify | safeHTML }}</a>
-  {{ end }}
 
-  {{/* Alternative Call-to-action link */}}
-  {{ if $page.Params.cta_alt.url }}
-    {{ $link := $page.Params.cta_alt.url }}
-    {{ $scheme := (urls.Parse $link).Scheme }}
-    {{ $target := "" }}
-    {{ if not $scheme }}
-      {{ $link = $link | relLangURL }}
-    {{ else if in (slice "http" "https") $scheme }}
-      {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
+    {{ with $page.Content }}
+      <div class="hero-lead">{{ . }}</div>
     {{ end }}
-    <a href="{{ $link | safeURL }}" {{ $target | safeHTMLAttr }} class="hero-cta-alt btn-lg" style="margin-left: 10px; text-decoration: none;">{{ $page.Params.cta_alt.label | markdownify | emojify | safeHTML }} <i class="fas fa-angle-right"></i></a>
-  {{ end }}
 
-  {{/* Call-to-action note */}}
-  {{ with $page.Params.cta_note }}
-    <p class="hero-note text-muted" style="margin-top: 10px;">{{ .label | markdownify | emojify | safeHTML }}</p>
-  {{ end }}
+    {{/* Call-to-action link */}}
+    {{ if $page.Params.cta.url }}
+      {{ $pack := or $page.Params.cta.icon_pack "fas" }}
+      {{ $pack_prefix := $pack }}
+      {{ if in (slice "fab" "fas" "far" "fal") $pack }}
+        {{ $pack_prefix = "fa" }}
+      {{ end }}
+      {{ $link := $page.Params.cta.url }}
+      {{ $scheme := (urls.Parse $link).Scheme }}
+      {{ $target := "" }}
+      {{ if not $scheme }}
+        {{ $link = $link | relLangURL }}
+      {{ else if in (slice "http" "https") $scheme }}
+        {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
+      {{ end }}
+    <p class="cta-btns">
+      <a href="{{ $link | safeURL }}" {{ $target | safeHTMLAttr }} class="btn {{if $bg.text_color_light}}btn-light{{else}}btn-primary{{end}} btn-lg mb-md-1">{{ if $page.Params.cta.icon }}<i class="{{ $pack }} {{ $pack_prefix }}-{{ $page.Params.cta.icon }} pr-1" aria-hidden="true"></i>{{end}}{{ $page.Params.cta.label | markdownify | emojify | safeHTML }}</a>
+
+      {{/* Alternative Call-to-action link */}}
+      {{ if $page.Params.cta_alt.url }}
+        {{ $link := $page.Params.cta_alt.url }}
+        {{ $scheme := (urls.Parse $link).Scheme }}
+        {{ $target := "" }}
+        {{ if not $scheme }}
+          {{ $link = $link | relLangURL }}
+        {{ else if in (slice "http" "https") $scheme }}
+          {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
+        {{ end }}
+      <a href="{{ $link | safeURL }}" {{ $target | safeHTMLAttr }} class="hero-cta-alt btn-lg pl-md-4">{{ $page.Params.cta_alt.label | markdownify | emojify | safeHTML }} <i class="fas fa-angle-right"></i></a>
+      {{ end }}
+    </p>
+    {{ end }}
+
+    {{/* Call-to-action note */}}
+    {{ with $page.Params.cta_note }}
+    <p class="hero-note text-muted mb-3 mb-md-1">
+      {{ .label | markdownify | emojify | safeHTML }}
+    </p>
+    {{ end }}
 
   {{/* Hero image */}}
   {{ if $page.Params.hero_media }}
+  </div>
+  <div class="col-12 mx-auto col-md-6 {{if $page.Params.design.flip}}order-md-first{{end}} hero-media">
     {{- $image := ($page.Parent.Resources.ByType "image").GetMatch $page.Params.hero_media -}}
     {{- if not $image -}}
       {{- $image = resources.Get (path.Join "media" $page.Params.hero_media) -}}
-    {{- end }}
+    {{- end -}}
     {{ if $image }}
       {{ $isSVG := eq $image.MediaType.SubType "svg" }}
-      {{ if $isSVG }}
-        <img src="{{ $image.RelPermalink }}" alt="{{ $page.Title }}" style="margin-top: 20px;">
-      {{ else }}
+      {{ if $isSVG -}}
+
+        <img src="{{ $image.RelPermalink }}" alt="{{ $page.Title }}">
+
+      {{- else }}
+
         {{ $legacy_img := $image.Resize "400x" }}
         {{ $img_src := "" }}
         {{ $img_src_set := slice }}
@@ -78,9 +85,9 @@
         {{ end }}
         {{ $img_src_set = delimit $img_src_set "," }}
 
-        <img src="{{ $legacy_img.RelPermalink }}" srcset="{{ $img_src_set }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $page.Title }}" style="margin-top: 20px;">
+        <img src="{{ $legacy_img.RelPermalink }}" srcset="{{ $img_src_set }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $page.Title }}">
       {{ end }}
     {{ end }}
-  {{ end }}
-
+  </div>
 </div>
+{{ end }}
