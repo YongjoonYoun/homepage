@@ -97,3 +97,20 @@ extensions:
 security:
   # Allow frame for embedding speaker notes in slides
   allow_frame: true
+
+############################
+## THEME CUSTOMIZATIONS
+############################
+
+homepage:
+  show_posts: false # Disable blog posts on the homepage
+  hero_section:
+    image_size: large # Increase profile picture size
+    text_align: center
+    max_width: 800px
+research_page:
+  view: list
+  columns: 1 # Display working papers as a list for clarity
+  show_download_links: true # Add PDF download links for each paper
+
+
