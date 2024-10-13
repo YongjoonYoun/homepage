@@ -1,26 +1,24 @@
 ---
-
 education:
   courses:
-  - course: Ph.D., Economics
-    institution: The Ohio State University
-    year: 2028 (expected)
-  - course: M.Sc., Economics
-    institution: Barcelona School of Economics
-    year: 2020
-  - course: B.Sc., Economics and Finance
-    institution: University of Amsterdam
-    year: 2018
-email: ""
-highlight_name: true
+    - course: Ph.D. in Economics
+      institution: The Ohio State University
+      year: 2028 (expected)
+    - course: M.Sc. in Economics
+      institution: Barcelona School of Economics
+      year: 2020
+    - course: B.Sc. in Economics and Finance
+      institution: University of Amsterdam
+      year: 2018
+
 interests:
-- Labor Economics
-- Health & Aging Economics
+  - Labor Economics
+  - Health & Aging Economics
 
 organizations:
-- name: The Ohio State University
-  url: https://www.osu.edu/
-role: Ph.D. student in Economics 
+  - name: The Ohio State University
+    url: https://www.osu.edu/
+role: Ph.D. Student, Economics
 
 social:
 - icon: envelope
@@ -39,13 +37,9 @@ social:
   icon_pack: fab
   link: https://www.linkedin.com/in/harrison-youn/
 superuser: true
-title: Harrison Yongjoon Youn
+title: ''
 ---
-Welcome to my homepage! I am a Ph.D. student in Economics at the Ohio State University (OSU). 
-
-Prior to joining OSU, I spent 2 years as a research associate at National University of Singapore (NUS), focusing on the economics of aging and measurement.
-
-My research interests lie in labor, health, aging, and public economics. I use causal inference methods to address my research questions.
+I am a Ph.D. student in Economics at The Ohio State University (OSU), focusing on labor, health, and aging. Previously, I worked as a research associate at the National University of Singapore (NUS) on aging economics. My research uses causal inference to to address my research questions.
 
 
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/CV.pdf" "newtab" >}}CV{{< /staticref >}}.
+{{< icon name="download" pack="fas" >}} {{< staticref "uploads/CV.pdf" "newtab" >}}CV{{< /staticref >}}

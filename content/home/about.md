@@ -9,6 +9,8 @@ weight: 20
 
 title: "About Me"
 
+title_size: "small"
+
 author: admin
 
 ---

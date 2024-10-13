@@ -79,44 +79,4 @@ math:
   enable: true
   engine: MathJax
   
-############################
-## THEME CUSTOMIZATIONS
-############################
 
-theme_customizations:
-  homepage:
-    show_posts: false # Disable blog posts for a cleaner homepage
-    hero_section:
-      image_size: large
-      text_align: center
-      max_width: 600px # Reduced max width for a more focused look
-  header:
-    show_search: false # Removed search bar for simplicity
-    align: r
-    show_logo: false # Removed logo for a cleaner header
-  footer:
-    minimal_footer: true # Set footer to minimal to keep it professional
-  research_page:
-    view: list
-    columns: 1 # Display working papers as a single-column list for clarity
-    show_download_links: true # Add PDF download links for easy access
-
-avatar:
-  gravatar: false
-  shape: circle
-  size: large # Increased the avatar size for prominence
-
-############################
-## EXTENSIONS
-############################
-
-extensions:
-  cms:
-    branch: main
-    local_backend: false
-  academicons:
-    enable: false
-  css:
-    custom_css: ["css/reveal_custom.css"]
-  privacy_pack:
-    enable: false # Disable privacy features for simplicity
