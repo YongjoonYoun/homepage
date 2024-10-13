@@ -8,7 +8,7 @@
   {{ $avatar := ($author_page.Resources.ByType "image").GetMatch "*avatar*" }}
   {{ if $avatar }}
     <div class="hero-avatar">
-      <img src="{{ $avatar.RelPermalink }}" alt="{{ $author_page.Title }}" style="width: 150px; height: auto; border-radius: 50%; margin-bottom: 20px;">
+      <img src="{{ $avatar.RelPermalink }}" alt="{{ $author_page.Title }}" style="display: block; margin: 0 auto; width: 150px; height: auto; border-radius: 50%; margin-bottom: 20px;">
     </div>
   {{ end }}
 
