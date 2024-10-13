@@ -19,15 +19,15 @@
 
 <!-- About widget -->
 <div class="row justify-content-center text-center">
-  <div class="col-12 col-lg-4 d-flex justify-content-center align-items-center text-center">
+  <div class="col-12 col-lg-4 d-flex justify-content-center align-items-center text-center mx-auto" style="max-width: 800px;">
     <div id="profile">
 
       {{ if site.Params.features.avatar.gravatar }}
-      $1" src="$1"" alt="{{$person_page.Title}}">
+      {{ $avatar_image := $avatar.Fill "800x900" }}<img class="avatar avatar-custom" width="800" height="900" src="{{ $avatar_image.RelPermalink }}" alt="{{ $person_page.Title }}">
       {{ else if $avatar }}
-      {{ $avatar_image := $avatar.Fill "350x400" }}
+      {{ $avatar_image := $avatar.Fill "800x900" }}
       <img class="avatar avatar-custom"
-           width="{{ $avatar_image.Width }}" height="{{ $avatar_image.Height }}"
+           width="800" height="900"
            src="{{ $avatar_image.RelPermalink }}" alt="{{$person_page.Title}}">
       {{ end }}
 
@@ -80,7 +80,7 @@
 
     </div>
   </div>
-  <div class="col-12 col-lg-8">
+  <div class="col-12 col-lg-8 mx-auto">
     <div class="article-style text-justify">
       {{ $person_page.Content }}
     </div>
