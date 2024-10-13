@@ -3,17 +3,17 @@ name = "Minimal"
 
 [light]
   # Primary
-  primary = "#1565c0"
+  primary = "#1a237e" # A deeper, professional blue
 
   # Menu
-  menu_primary = "#fff"
-  menu_text = "#34495e"
-  menu_text_active = "#2962ff"
-  menu_title = "#2b2b2b"
+  menu_primary = "#ffffff"
+  menu_text = "#2c3e50" # A darker, sophisticated grey
+  menu_text_active = "#8b0000" # Matching the primary color for cohesion
+  menu_title = "#2c3e50" 
 
   # Home sections
-  home_section_odd = "rgb(255, 255, 255)"
-  home_section_even = "rgb(247, 247, 247)"
+  home_section_odd = "#ffffff"
+  home_section_even = "#f0f0f0" # Light grey for subtle contrast
 
 [dark]
   # Primary
@@ -21,3 +21,5 @@ name = "Minimal"
 
   link = "#bbdefb"
   link_hover = "#bbdefb"
+
+

@@ -7,12 +7,24 @@ tags:
   - Aging Population
   - Intergenerational Finance
 
-publication_types: ["2"] 
+
 external_link: ""
 image:
-  caption: ""
-  focal_point: "Smart"
-authors: ["Harrison Yongjoon Youn"]
+  caption: 
+  focal_point: Smart  
+#links:
+#- icon:   
+  #icon_pack:  
+  #name:  
+  #url:  
+#slides:  
+summary:   
+#tags:
+- 
+#url_code: ""
+#url_pdf: ""
+#url_slides: ""
+#url_video: ""
 
 ---
 

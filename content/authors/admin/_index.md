@@ -39,7 +39,7 @@ social:
 superuser: true
 title: ''
 ---
-I am a Ph.D. student in Economics at The Ohio State University (OSU), focusing on labor, health, and aging. Previously, I worked as a research associate at the National University of Singapore (NUS) on aging economics. My research uses causal inference to to address my research questions.
+My research focuses on labor, health, and aging economics, employing causal inference to address research questions. I previously served as a research associate at the National University of Singapore (NUS) for two years, specializing in aging economics.
 
 
 {{< icon name="download" pack="fas" >}} {{< staticref "uploads/CV.pdf" "newtab" >}}CV{{< /staticref >}}
