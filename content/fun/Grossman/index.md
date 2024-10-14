@@ -12,7 +12,8 @@ math: true
 
 The Grossman model is a foundational theory in health economics that conceptualizes health as a form of human capital. Developed by Michael Grossman in 1972, it views individuals as both producers and consumers of health. Health, in this model, is an investment good that impacts productivity, earnings, and quality of life. The model provides insights into why individuals invest in their health and how they allocate resources like time and money to maintain or improve their health status.
 
-The generic Grossman model is based on an individual¡¯s decision to invest in health to maximize their lifetime utility. The utility function is typically a function of both consumption $$ C_t $$ and health capital $$ H_t $$, given as:
+The generic Grossman model is based on an individual's decision to invest in health to maximize their lifetime utility. The utility function is typically a function of both consumption $ C_t $ and health capital $ H_t $, given as:
+
 $$
 \[
 U = \int_0^T e^{-rt} u(C_t, H_t) \, dt
