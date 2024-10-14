@@ -1,5 +1,5 @@
 ---
-title: "Grossman Model Interactive Page"
+title: "Grossman Model in Health Economics"
 description: "The Grossman Model of Health Economics"
 date: 2024-10-14
 draft: false
