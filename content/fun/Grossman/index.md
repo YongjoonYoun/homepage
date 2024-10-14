@@ -15,60 +15,52 @@ The Grossman model is a foundational theory in health economics that conceptuali
 The generic Grossman model is based on an individual's decision to invest in health to maximize their lifetime utility. The utility function is typically a function of both consumption $ C_t $ and health capital $ H_t $, given as:
 
 $$
-\[
 U = \int_0^T e^{-rt} u(C_t, H_t) \, dt
-\]
 $$
 
 Where:
-- $$ u(C_t, H_t) $$: Instantaneous utility function depending on consumption and health.
-- $$ r $$: Rate of time preference (discount rate).
-- $$ T $$: Time horizon of the individual.
+- **\( u(C_t, H_t) \)**: Instantaneous utility function depending on consumption and health.
+- **\( r \)**: Rate of time preference (discount rate).
+- **\( T \)**: Time horizon of the individual.
 
 ### Health Capital Accumulation
 
-The health capital $$ H_t$$  follows an equation of motion that takes into account investments in health $$ I_t $$ and a depreciation rate $$ \delta $$:
+The health capital $ H_t$  follows an equation of motion that takes into account investments in health $ I_t $ and a depreciation rate $ \delta $:
 
 $$
-\[
 \frac{dH_t}{dt} = I_t - \delta H_t
-\]
 $$
 
 Where:
-- $$ I_t $$: Investment in health, which can include expenditures on medical care, exercise, diet, etc.
-- $$ \delta $$: Depreciation rate of health capital, representing natural deterioration of health.
+- **\( I_t \)**: Investment in health, which can include expenditures on medical care, exercise, diet, etc.
+- **\( \delta \)**: Depreciation rate of health capital, representing natural deterioration of health.
 
 ### Budget Constraint
 
-Individuals face a budget constraint that links their income $$ Y_t $$, consumption $$ C_t $$, and investment in health $$ I_t $$:
+Individuals face a budget constraint that links their income $ Y_t $, consumption $ C_t $, and investment in health $ I_t $:
 
 $$
-\[
 Y_t = C_t + I_t + W_t
-\]
 $$
 
 Where:
-- $$ Y_t $$: Income at time $$ t $$.
-- $$ W_t $$: Other non-health-related expenses.
+- **\( Y_t \)**: Income at time $ t $.
+- **\( W_t \)**: Other non-health-related expenses.
 
 ### Optimization Problem
 
-The individual's objective is to choose the optimal path of consumption $$ C_t $$ and investment in health $$ I_t $$ that maximizes lifetime utility, subject to the health capital equation of motion and budget constraint. The optimization problem is typically solved using dynamic programming or calculus of variations.
+The individual's objective is to choose the optimal path of consumption $ C_t $ and investment in health $ I_t $ that maximizes lifetime utility, subject to the health capital equation of motion and budget constraint. The optimization problem is typically solved using dynamic programming or calculus of variations.
 
 ### Hamiltonian for Optimization
 
-To solve this optimization problem, the Hamiltonian $$ \mathcal{H} $$ is formulated as follows:
+To solve this optimization problem, the Hamiltonian $ \mathcal{H} $ is formulated as follows:
 
 $$
-\[
 \mathcal{H} = e^{-rt} u(C_t, H_t) + \lambda_t (I_t - \delta H_t)
-\]
 $$
 
 Where:
-- $$ \lambda_t $$: Costate variable representing the shadow price of health capital.
+- **\( \lambda_t \)**: Costate variable representing the shadow price of health capital.
 
 The Hamiltonian captures both the current utility and the value of changes in health capital over time.
 
@@ -76,110 +68,92 @@ The Grossman model can be extended to a form incorporating both dynamic optimiza
 
 ### Comparative Static Analysis
 
-In comparative static analysis, we analyze the response of optimal health capital $$ H^* $$ to changes in parameters such as depreciation rate $$ \delta $$ and investment cost. The first-order condition for health capital can be written as:
+In comparative static analysis, we analyze the response of optimal health capital $ H^* $ to changes in parameters such as depreciation rate $ \delta $ and investment cost. The first-order condition for health capital can be written as:
 
 $$
-\[
 \frac{\partial u(C_t, H_t)}{\partial H_t} = \lambda_t \delta
-\]
 $$
 
 Where:
-- $$ \frac{\partial u(C_t, H_t)}{\partial H_t} $$: Marginal utility of health.
-- $$ \lambda_t $$: Costate variable representing the shadow price of health capital.
-- $$ \delta $$: Depreciation rate of health.
+- **\( \frac{\partial u(C_t, H_t)}{\partial H_t} \)**: Marginal utility of health.
+- **\( \lambda_t \)**: Costate variable representing the shadow price of health capital.
+- **\( \delta \)**: Depreciation rate of health.
 
-To perform comparative static analysis, we differentiate the first-order condition with respect to the parameter of interest (e.g., $$ \delta $$) and analyze how changes in the parameter affect the optimal value of health capital. This helps understand the sensitivity of health investments to changes in economic conditions or policy interventions.
+To perform comparative static analysis, we differentiate the first-order condition with respect to the parameter of interest (e.g., $ \delta $) and analyze how changes in the parameter affect the optimal value of health capital. This helps understand the sensitivity of health investments to changes in economic conditions or policy interventions.
 
 ### Dynamic Optimization Problem
 
-The individual maximizes their lifetime utility, $$ U $$, which is a function of both consumption $$ C_t $$ and health capital $$ H_t $$ over time. The utility function is given by:
+The individual maximizes their lifetime utility, $ U $, which is a function of both consumption $ C_t $ and health capital $ H_t $ over time. The utility function is given by:
 
 $$
-\[
 U = \int_0^T e^{-rt} u(C_t, H_t) \, dt
-\]
 $$
 
 Where:
-- $$ u(C_t, H_t) $$: Instantaneous utility function depending on consumption and health.
-- $$ r $$: Rate of time preference (discount rate).
-- $$ T $$: Time horizon of the individual.
+- **\( u(C_t, H_t) \)**: Instantaneous utility function depending on consumption and health.
+- **\( r \)**: Rate of time preference (discount rate).
+- **\( T \)**: Time horizon of the individual.
 
 ### Equation of Motion for Health Capital
 
-The evolution of health capital $$ H_t $$ is represented by the differential equation:
+The evolution of health capital $ H_t $ is represented by the differential equation:
 
 $$
-\[
 \frac{dH_t}{dt} = I_t - \delta H_t
-\]
 $$
 
 Where:
-- $$ I_t $$: Investment in health at time $$ t $$, which can include medical expenses, diet, exercise, etc.
-- $$ \delta $$: Depreciation rate of health, representing natural health deterioration.
+- **\( I_t \)**: Investment in health at time $ t $, which can include medical expenses, diet, exercise, etc.
+- **\( \delta \)**: Depreciation rate of health, representing natural health deterioration.
 
 ### Budget Constraint
 
 The individual faces a budget constraint that links income, consumption, and investment in health:
 
 $$
-\[
 Y_t = C_t + I_t + W_t
-\]
 $$
 
 Where:
-- $$ Y_t $$: Income at time $$ t $$.
-- $$ W_t $$: Other expenses unrelated to health and consumption.
+- **\( Y_t \)**: Income at time $ t $.
+- **\( W_t \)**: Other expenses unrelated to health and consumption.
 
 ### Hamiltonian for Optimization
 
-To solve the dynamic optimization problem, we set up the Hamiltonian $$ \mathcal{H} $$ for the maximization of lifetime utility subject to the health capital equation of motion:
+To solve the dynamic optimization problem, we set up the Hamiltonian $ \mathcal{H} $ for the maximization of lifetime utility subject to the health capital equation of motion:
 
 $$
-\[
 \mathcal{H} = e^{-rt} u(C_t, H_t) + \lambda_t (I_t - \delta H_t)
-\]
 $$
 
 Where:
-- $$ \lambda_t $$: Costate variable representing the shadow price of health capital.
+- **\( \lambda_t \)**: Costate variable representing the shadow price of health capital.
 
 ### First-Order Conditions
 
-The first-order conditions for optimality are obtained by differentiating the Hamiltonian with respect to control variables $$ C_t, I_t $$ and the costate variable $$ \lambda_t $$:
+The first-order conditions for optimality are obtained by differentiating the Hamiltonian with respect to control variables $ C_t, I_t $ and the costate variable $ \lambda_t $:
 
 1. **Optimal Consumption**: 
 $$
-\[
-\frac{\partial \mathcal{H}}{\partial C_t} = e^{-rt} rac{\partial u(C_t, H_t)}{\partial C_t} = 0
-\]
+\frac{\partial \mathcal{H}}{\partial C_t} = e^{-rt} \frac{\partial u(C_t, H_t)}{\partial C_t} = 0
 $$
 
 2. **Optimal Investment in Health**: 
 $$
-\[
 \frac{\partial \mathcal{H}}{\partial I_t} = \lambda_t = 0
-\]
 $$
 
 3. **Costate Equation**: 
 $$
-\[
 \frac{d\lambda_t}{dt} = r\lambda_t - rac{\partial \mathcal{H}}{\partial H_t}
-\]
 $$
 
 ### Transversality Condition
 
-The transversality condition ensures that the solution is optimal over the entire time horizon $$ T $$:
+The transversality condition ensures that the solution is optimal over the entire time horizon $ T $:
 
 $$
-\[
 \lim_{t\xrightarrow{} T} e^{-rt} \lambda_t H_t = 0
-\]
 $$
 
 These equations describe the optimal path of consumption, investment in health, and the evolution of health capital over time.
