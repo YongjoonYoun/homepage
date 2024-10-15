@@ -51,46 +51,125 @@ Where:
 
 In the Grossman model, the Production Possibility Frontier (PPF) illustrates the trade-off between health and other goods that an individual can produce with limited resources like time and money. The PPF is typically depicted as a semi-circle, where moving right from the zero point (maximum health) represents investing more in health, allowing for reduced time spent being sick but at the cost of producing fewer other goods. As health improves, more resources are devoted to maintaining it, reflecting diminishing returns-additional health improvements yield less benefit relative to the resources invested. Moving left of zero, health deteriorates, resulting in less time available for other productive activities, and eventually leads to death when the Y-axis reaches zero. This captures the real-world trade-off between health maintenance and the consumption or production of other goods as health status fluctuates.
 
+---
+title: "Grossman Model Interactive Page"
+description: "An interactive exploration of the Grossman Model of Health Economics"
+date: 2024-10-14
+draft: false
+math: true
+---
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+# The Grossman Model
+
+The Grossman model is a foundational theory in health economics that conceptualizes health as a form of human capital. Developed by Michael Grossman in 1972, it views individuals as both producers and consumers of health. Health, in this model, is an investment good that impacts productivity, earnings, and quality of life. The model provides insights into why individuals invest in their health and how they allocate resources like time and money to maintain or improve their health status.
+
+## Generic Mathematical Model
+
+The generic Grossman model is based on an individual¡¯s decision to invest in health to maximize their lifetime utility. The utility function is typically a function of both consumption (\( C_t \)) and health capital (\( H_t \)), given as:
+
+\[
+U = \int_0^T e^{-rt} u(C_t, H_t) \, dt
+\]
+
+Where:
+- \( u(C_t, H_t) \): Instantaneous utility function depending on consumption and health.
+- \( r \): Rate of time preference (discount rate).
+- \( T \): Time horizon of the individual.
+
+### Health Capital Accumulation
+
+The health capital (\( H_t \)) follows an equation of motion that takes into account investments in health (\( I_t \)) and a depreciation rate (\( \delta \)):
+
+\[
+\frac{dH_t}{dt} = I_t - \delta H_t
+\]
+
+Where:
+- \( I_t \): Investment in health, which can include expenditures on medical care, exercise, diet, etc.
+- \( \delta \): Depreciation rate of health capital, representing natural deterioration of health.
+
+### Budget Constraint
+
+Individuals face a budget constraint that links their income (\( Y_t \)), consumption (\( C_t \)), and investment in health (\( I_t \)):
+
+\[
+Y_t = C_t + I_t + W_t
+\]
+
+Where:
+- \( Y_t \): Income at time \( t \).
+- \( W_t \): Other non-health-related expenses.
+
+### Optimization Problem
+
+The individual's objective is to choose the optimal path of consumption (\( C_t \)) and investment in health (\( I_t \)) that maximizes lifetime utility, subject to the health capital equation of motion and budget constraint. The optimization problem is typically solved using dynamic programming or calculus of variations.
+
+### Hamiltonian for Optimization
+
+To solve this optimization problem, the Hamiltonian (\( \mathcal{H} \)) is formulated as follows:
+
+\[
+\mathcal{H} = e^{-rt} u(C_t, H_t) + \lambda_t (I_t - \delta H_t)
+\]
+
+Where:
+- \( \lambda_t \): Costate variable representing the shadow price of health capital.
+
+The Hamiltonian captures both the current utility and the value of changes in health capital over time.
+
+## Understanding the Dynamics
+
+To understand the Grossman model visually, we have created an interactive graph that lets you explore how various factors influence health outcomes over time. Feel free to interact with the sliders and visualize the relationships between health capital, investment in health, depreciation, and more.
+
 <div>
-    <label for="maxHealthPPF">Max Health:</label>
-    <input type="range" id="maxHealthPPF" min="50" max="200" step="10" value="100" onchange="updatePPFChart()">
-    <label id="maxHealthPPFValue">100</label>
+    <label for="depreciationRate">Depreciation Rate:</label>
+    <input type="range" id="depreciationRate" min="0" max="0.2" step="0.01" value="0.05" onchange="updateGrossmanChart()">
+    <label id="depreciationRateValue">0.05</label>
     <br>
-    <canvas id="ppfChart"></canvas>
+    <label for="investmentRate">Investment Rate:</label>
+    <input type="range" id="investmentRate" min="0" max="1" step="0.05" value="0.1" onchange="updateGrossmanChart()">
+    <label id="investmentRateValue">0.1</label>
+    <br>
+    <canvas id="grossmanChart"></canvas>
 </div>
 
 <script>
-    const ctxPPF = document.getElementById('ppfChart').getContext('2d');
-    let ppfChart;
+    const ctx = document.getElementById('grossmanChart').getContext('2d');
+    let grossmanChart;
 
-    function generatePPFData(maxHealth) {
+    function generateHealthData(periods, initialHealth, depreciationRate, investmentRate) {
         let data = [];
-        for (let health = 0; health <= maxHealth; health++) {
-            let otherGoods = Math.sqrt(maxHealth ** 2 - health ** 2); // Half-circle equation for PPF
-            data.push(otherGoods);
+        let health = initialHealth;
+        for (let i = 0; i < periods; i++) {
+            health = health * (1 - depreciationRate) + investmentRate * 100;
+            data.push(health);
         }
         return data;
     }
 
-    function updatePPFChart() {
-        const maxHealth = parseFloat(document.getElementById('maxHealthPPF').value);
-        document.getElementById('maxHealthPPFValue').innerText = maxHealth;
+    function updateGrossmanChart() {
+        const depreciationRate = parseFloat(document.getElementById('depreciationRate').value);
+        const investmentRate = parseFloat(document.getElementById('investmentRate').value);
+        document.getElementById('depreciationRateValue').innerText = depreciationRate;
+        document.getElementById('investmentRateValue').innerText = investmentRate;
 
-        const data = generatePPFData(maxHealth);
-        ppfChart.data.datasets[0].data = data;
-        ppfChart.update();
+        const data = generateHealthData(20, 100, depreciationRate, investmentRate);
+        grossmanChart.data.datasets[0].data = data;
+        grossmanChart.update();
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-        ppfChart = new Chart(ctxPPF, {
+        grossmanChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: Array.from({length: 101}, (_, i) => i),
+                labels: Array.from({length: 20}, (_, i) => `Year ${i + 1}`),
                 datasets: [
                     {
-                        label: 'Production Possibility Frontier (PPF)',
-                        data: generatePPFData(100),
-                        borderColor: 'rgba(54, 162, 235, 1)',
+                        label: 'Health Capital',
+                        data: generateHealthData(20, 100, 0.05, 0.1),
+                        borderColor: 'rgba(75, 192, 192, 1)',
                         borderWidth: 2,
                         fill: false
                     }
@@ -102,18 +181,15 @@ In the Grossman model, the Production Possibility Frontier (PPF) illustrates the
                     x: {
                         title: {
                             display: true,
-                            text: 'Health (Units)'
-                        },
-                        min: 0,
-                        max: 100
+                            text: 'Time (Years)'
+                        }
                     },
                     y: {
                         title: {
                             display: true,
-                            text: 'Other Goods (Units)'
+                            text: 'Health Capital'
                         },
-                        min: 0,
-                        max: 100
+                        min: 0
                     }
                 },
                 interaction: {
@@ -129,6 +205,194 @@ In the Grossman model, the Production Possibility Frontier (PPF) illustrates the
                                     label += ': ';
                                 }
                                 label += Math.round(context.raw * 100) / 100;
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    });
+</script>
+
+### Advanced Interactive Graph: Utility vs Health Capital
+
+To further enhance understanding, we have added an advanced interactive graph that explores the relationship between health capital and utility over time. This graph allows users to visualize how different levels of health investment and depreciation rates affect the utility derived from health.
+
+<div>
+    <label for="depreciationRateUtility">Depreciation Rate:</label>
+    <input type="range" id="depreciationRateUtility" min="0" max="0.2" step="0.01" value="0.05" onchange="updateUtilityChart()">
+    <label id="depreciationRateUtilityValue">0.05</label>
+    <br>
+    <label for="investmentRateUtility">Investment Rate:</label>
+    <input type="range" id="investmentRateUtility" min="0" max="1" step="0.05" value="0.1" onchange="updateUtilityChart()">
+    <label id="investmentRateUtilityValue">0.1</label>
+    <br>
+    <canvas id="utilityChart"></canvas>
+</div>
+
+<script>
+    const ctxUtility = document.getElementById('utilityChart').getContext('2d');
+    let utilityChart;
+
+    function generateUtilityData(periods, initialHealth, depreciationRate, investmentRate) {
+        let data = [];
+        let health = initialHealth;
+        for (let i = 0; i < periods; i++) {
+            health = health * (1 - depreciationRate) + investmentRate * 100;
+            let utility = Math.log(health); // Assuming a logarithmic utility function for health
+            data.push(utility);
+        }
+        return data;
+    }
+
+    function updateUtilityChart() {
+        const depreciationRate = parseFloat(document.getElementById('depreciationRateUtility').value);
+        const investmentRate = parseFloat(document.getElementById('investmentRateUtility').value);
+        document.getElementById('depreciationRateUtilityValue').innerText = depreciationRate;
+        document.getElementById('investmentRateUtilityValue').innerText = investmentRate;
+
+        const data = generateUtilityData(20, 100, depreciationRate, investmentRate);
+        utilityChart.data.datasets[0].data = data;
+        utilityChart.update();
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        utilityChart = new Chart(ctxUtility, {
+            type: 'line',
+            data: {
+                labels: Array.from({length: 20}, (_, i) => `Year ${i + 1}`),
+                datasets: [
+                    {
+                        label: 'Utility Derived from Health',
+                        data: generateUtilityData(20, 100, 0.05, 0.1),
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 2,
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Time (Years)'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Utility'
+                        },
+                        min: 0
+                    }
+                },
+                interaction: {
+                    mode: 'index',
+                    intersect: false
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                label += Math.round(context.raw * 100) / 100;
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    });
+</script>
+
+### Interactive Graph: Production Possibility Frontier (PPF) in the Grossman Model
+
+The Production Possibility Frontier (PPF) in the Grossman model represents the trade-offs between health and other goods that an individual can produce given limited resources, such as time and money. The PPF is often depicted as a half-circle, showing the fact that to spend time other than being sick on the bed, one needs to have a certain level of health condition (here the health value 0 is set as the maximum one can enjoy other goods), which makes sense in the real world. Moving to the left of 0 means the PPF curves down until death (where the value of the Y-axis touches 0).
+
+<div>
+    <label for="maxHealthPPF">Max Health:</label>
+    <input type="range" id="maxHealthPPF" min="50" max="200" step="10" value="100" onchange="updatePPFChart()">
+    <label id="maxHealthPPFValue">100</label>
+    <br>
+    <canvas id="ppfChart"></canvas>
+</div>
+
+<script>
+    const ctxPPF = document.getElementById('ppfChart').getContext('2d');
+    let ppfChart;
+
+    function generatePPFData(maxHealth) {
+        let data = [];
+        for (let health = -maxHealth; health <= maxHealth; health++) {
+            let otherGoods = Math.sqrt(maxHealth ** 2 - health ** 2); // Full half-circle equation for PPF
+            data.push({ x: health, y: otherGoods });
+        }
+        return data;
+    }
+
+    function updatePPFChart() {
+        const maxHealth = parseFloat(document.getElementById('maxHealthPPF').value);
+        document.getElementById('maxHealthPPFValue').innerText = maxHealth;
+
+        const data = generatePPFData(maxHealth);
+        ppfChart.data.datasets[0].data = data;
+        ppfChart.update();
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        ppfChart = new Chart(ctxPPF, {
+            type: 'scatter',
+            data: {
+                datasets: [
+                    {
+                        label: 'Production Possibility Frontier (PPF)',
+                        data: generatePPFData(100),
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 2,
+                        showLine: true,
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Health (Units)'
+                        },
+                        min: -100,
+                        max: 100
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Other Goods (Units)'
+                        },
+                        min: 0
+                    }
+                },
+                interaction: {
+                    mode: 'index',
+                    intersect: false
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                label += `(${Math.round(context.raw.x * 100) / 100}, ${Math.round(context.raw.y * 100) / 100})`;
                                 return label;
                             }
                         }
