@@ -1,10 +1,9 @@
 ---
 title: "CES Function Graphic Calculator"
 description: "Explore fun and interactive economics tools."
-type: "page"
-url: "/fun/CES"
-weight: 30
-date: "2024-10-02"
+draft: false
+math: true
+Date: 2024-10-02
 ---
 
 The **Constant Elasticity of Substitution (CES) Function** is a fundamental concept in production theory, illustrating how easily one input (like capital) can be substituted for another (like labor) while maintaining the same level of output. This flexibility is crucial for firms as they respond to changes in input costs and technological advancements.
@@ -82,26 +81,39 @@ $$
 
 Use the interactive calculator below to explore how changes in capital (K) and labor (L) affect total output (Y) based on the CES production function. Adjust the parameters \($ \alpha $\) and \($\rho$\) to see different substitution scenarios and understand their economic implications.
 
-<!-- Enhanced CES Interactive 3D Visualization Container -->
 <div class="visualizer">
   <label for="alpha">&alpha; (0 &lt; &alpha; &lt; 1):
     <span class="tooltip" aria-label="Alpha determines the weight of capital in production. A higher alpha indicates a greater emphasis on automation and technology relative to labor.">
       &#9432;
     </span>
   </label>
-  <input type="range" id="alpha" step="0.01" min="0.01" max="0.99" value="0.5" oninput="updateAlphaValue(this.value); plot3DGraph();">
+  <input type="range" id="alpha" step="0.01" min="0.01" max="0.99" value="0.5" oninput="updateAlphaValue(this.value); updatePlot3DGraph();">
   <span id="alphaValue">0.50</span>
-  
+
   <label for="rho">&rho; (rho):
     <span class="tooltip" aria-label="Rho determines the elasticity of substitution between capital and labor. Lower rho means higher elasticity, allowing easier substitution between automation and labor.">
       &#9432;
     </span>
   </label>
-  <input type="range" id="rho" step="0.01" min="-1" max="1" value="0.5" oninput="updateRhoValue(this.value); plot3DGraph();">
+  <input type="range" id="rho" step="0.01" min="-1" max="1" value="0.5" oninput="updateRhoValue(this.value); updatePlot3DGraph();">
   <span id="rhoValue">0.50</span>
-  
-  <button onclick="plot3DGraph()" style="display:none;">Visualize 3D Output</button>
-  
+
+  <label for="K">Capital (K):
+    <span class="tooltip" aria-label="Adjust the level of capital input.">
+      &#9432;
+    </span>
+  </label>
+  <input type="range" id="K" step="1" min="1" max="50" value="25" oninput="updateKValue(this.value); updatePlot3DGraph();">
+  <span id="KValue">25</span>
+
+  <label for="L">Labor (L):
+    <span class="tooltip" aria-label="Adjust the level of labor input.">
+      &#9432;
+    </span>
+  </label>
+  <input type="range" id="L" step="1" min="1" max="50" value="25" oninput="updateLValue(this.value); updatePlot3DGraph();">
+  <span id="LValue">25</span>
+
   <div class="chart-container">
     <div id="ces3DChart" style="height: 500px;"></div>
   </div>
@@ -111,86 +123,52 @@ Use the interactive calculator below to explore how changes in capital (K) and l
 <style>
   .visualizer {
     max-width: 700px;
-    margin: 40px auto;
-    padding: 25px;
-    border: 3px solid #4B0082; /* Indigo Border */
-    border-radius: 15px;
-    background-color: #f0f8ff; /* Alice Blue Background */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Soft Shadow */
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
   .visualizer label {
     display: block;
-    margin-top: 20px;
-    font-weight: bold;
-    color: #4B0082; /* Indigo Labels */
-    font-size: 1.1em;
+    margin-top: 10px;
+    font-weight: normal;
+    color: #333;
+    font-size: 0.95em;
   }
   .visualizer input[type="range"] {
     width: 100%;
     margin-top: 5px;
-    background: linear-gradient(to right, #6a5acd, #4B0082); /* Gradient Background for Range */
-  }
-  .visualizer button {
-    width: 100%;
-    padding: 12px;
-    margin-top: 25px;
-    background-color: #8A2BE2; /* Blue Violet Button */
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 18px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  .visualizer button:hover {
-    background-color: #4B0082; /* Darker Violet on Hover */
-    transform: scale(1.02);
   }
   .chart-container {
-    position: relative;
     width: 100%;
-    margin-top: 25px;
+    margin-top: 20px;
   }
-  /* Tooltip Styling */
   .tooltip {
-    border-bottom: 1px dotted #4B0082;
+    border-bottom: 1px dotted #333;
     cursor: help;
     margin-left: 5px;
     position: relative;
   }
-  
   .tooltip::after {
     content: attr(aria-label);
     position: absolute;
     left: 50%;
     bottom: 125%;
     transform: translateX(-50%);
-    background-color: #8A2BE2;
+    background-color: #333;
     color: #fff;
-    padding: 8px;
-    border-radius: 6px;
+    padding: 5px;
+    border-radius: 3px;
     white-space: nowrap;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s;
     z-index: 10;
   }
-  
   .tooltip:hover::after {
     opacity: 1;
-  }
-  
-  /* Screen Reader Only */
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    border: 0;
   }
 </style>
 
@@ -200,6 +178,9 @@ Use the interactive calculator below to explore how changes in capital (K) and l
 <!-- Enhanced CES 3D Visualization JavaScript -->
 <script>
   (function() {
+    let currentPlotData = null;
+    let currentLayout = null;
+
     function updateAlphaValue(val) {
       document.getElementById('alphaValue').innerText = parseFloat(val).toFixed(2);
     }
@@ -208,24 +189,24 @@ Use the interactive calculator below to explore how changes in capital (K) and l
       document.getElementById('rhoValue').innerText = parseFloat(val).toFixed(2);
     }
 
+    function updateKValue(val) {
+      document.getElementById('KValue').innerText = val;
+    }
+
+    function updateLValue(val) {
+      document.getElementById('LValue').innerText = val;
+    }
+
     function plot3DGraph() {
       // Retrieve input values
       const alpha = parseFloat(document.getElementById('alpha').value);
       const rho = parseFloat(document.getElementById('rho').value);
-
-      // Input validation
-      if (isNaN(alpha) || alpha <= 0 || alpha >= 1) {
-        alert('Please enter a valid ес between 0 and 1.');
-        return;
-      }
-      if (isNaN(rho)) {
-        alert('Please enter a valid её.');
-        return;
-      }
+      const KMax = parseInt(document.getElementById('K').value);
+      const LMax = parseInt(document.getElementById('L').value);
 
       // Prepare data for plotting 3D graph of Y vs K and L
-      const K = [...Array(50).keys()].map(x => x + 1);
-      const L = [...Array(50).keys()].map(x => x + 1);
+      const K = [...Array(KMax).keys()].map(x => x + 1);
+      const L = [...Array(LMax).keys()].map(x => x + 1);
       let zValues = [];
 
       for (let k of K) {
@@ -247,7 +228,7 @@ Use the interactive calculator below to explore how changes in capital (K) and l
       }
 
       // Plot the 3D graph using Plotly
-      const data = [{
+      currentPlotData = [{
         z: zValues,
         x: K,
         y: L,
@@ -255,23 +236,70 @@ Use the interactive calculator below to explore how changes in capital (K) and l
         colorscale: 'Viridis'
       }];
 
-      const layout = {
+      currentLayout = {
         title: 'CES Production Function 3D Visualization',
         scene: {
           xaxis: { title: 'Capital (K)' },
           yaxis: { title: 'Labor (L)' },
-          zaxis: { title: 'Output (Y)' }
+          zaxis: { title: 'Output (Y)' },
+          camera: {
+            eye: { x: 1.5, y: 1.5, z: 1.5, roll: 30, pitch: 30 } // Rotate initial position for a better view
+          }
         },
         autosize: true
       };
 
-      Plotly.newPlot('ces3DChart', data, layout);
+      Plotly.newPlot('ces3DChart', currentPlotData, currentLayout);
     }
+
+    function updatePlot3DGraph() {
+      if (currentPlotData && currentLayout) {
+        // Update the plot with the new data
+        const alpha = parseFloat(document.getElementById('alpha').value);
+        const rho = parseFloat(document.getElementById('rho').value);
+        const KMax = parseInt(document.getElementById('K').value);
+        const LMax = parseInt(document.getElementById('L').value);
+
+        const K = [...Array(KMax).keys()].map(x => x + 1);
+        const L = [...Array(LMax).keys()].map(x => x + 1);
+        let zValues = [];
+
+        for (let k of K) {
+          let zRow = [];
+          for (let l of L) {
+            let Y;
+            if (Math.abs(rho) < 1e-6) {
+              // Cobb-Douglas case
+              Y = Math.pow(k, alpha) * Math.pow(l, 1 - alpha);
+            } else {
+              // CES function calculation
+              const term1 = alpha * Math.pow(k, -rho);
+              const term2 = (1 - alpha) * Math.pow(l, -rho);
+              Y = Math.pow(term1 + term2, -1 / rho);
+            }
+            zRow.push(Y);
+          }
+          zValues.push(zRow);
+        }
+
+        currentPlotData[0].z = zValues;
+        currentPlotData[0].x = K;
+        currentPlotData[0].y = L;
+
+        Plotly.react('ces3DChart', currentPlotData, currentLayout);
+      }
+    }
+
+    // Initial plot when the page loads
+    document.addEventListener('DOMContentLoaded', plot3DGraph);
 
     // Expose the functions to the global scope
     window.plot3DGraph = plot3DGraph;
     window.updateAlphaValue = updateAlphaValue;
     window.updateRhoValue = updateRhoValue;
+    window.updateKValue = updateKValue;
+    window.updateLValue = updateLValue;
+    window.updatePlot3DGraph = updatePlot3DGraph;
   })();
 </script>
 
