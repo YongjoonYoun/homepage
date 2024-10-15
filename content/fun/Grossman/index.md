@@ -3,6 +3,7 @@ title: "Grossman Model in Health Economics"
 description: "The Grossman Model of Health Economics"
 draft: false
 math: true
+Date: 2024-10-14
 ---
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
