@@ -19,9 +19,9 @@ U = \int_0^T e^{-rt} u(C_t, H_t) \, dt
 $$
 
 Where:
-- **\( u(C_t, H_t) \)**: Instantaneous utility function depending on consumption and health.
-- **\( r \)**: Rate of time preference (discount rate).
-- **\( T \)**: Time horizon of the individual.
+- $ u(C_t, H_t) $: Instantaneous utility function depending on consumption and health.
+- $ r $: Rate of time preference (discount rate).
+- $ T $: Time horizon of the individual.
 
 ### Health Capital Accumulation
 
@@ -32,8 +32,8 @@ $$
 $$
 
 Where:
-- **\( I_t \)**: Investment in health, which can include expenditures on medical care, exercise, diet, etc.
-- **\( \delta \)**: Depreciation rate of health capital, representing natural deterioration of health.
+- $ I_t $: Investment in health, which can include expenditures on medical care, exercise, diet, etc.
+- $ \delta $: Depreciation rate of health capital, representing natural deterioration of health.
 
 ### Budget Constraint
 
@@ -44,8 +44,8 @@ Y_t = C_t + I_t + W_t
 $$
 
 Where:
-- **\( Y_t \)**: Income at time $ t $.
-- **\( W_t \)**: Other non-health-related expenses.
+- $ Y_t $: Income at time $ t $.
+- $ W_t $: Other non-health-related expenses.
 
 ### Optimization Problem
 
@@ -60,7 +60,7 @@ $$
 $$
 
 Where:
-- **\( \lambda_t \)**: Costate variable representing the shadow price of health capital.
+- $ \lambda_t $: Costate variable representing the shadow price of health capital.
 
 The Hamiltonian captures both the current utility and the value of changes in health capital over time.
 
@@ -75,9 +75,9 @@ $$
 $$
 
 Where:
-- **\( \frac{\partial u(C_t, H_t)}{\partial H_t} \)**: Marginal utility of health.
-- **\( \lambda_t \)**: Costate variable representing the shadow price of health capital.
-- **\( \delta \)**: Depreciation rate of health.
+- $ \frac{\partial u(C_t, H_t)}{\partial H_t} $: Marginal utility of health.
+- $ \lambda_t $: Costate variable representing the shadow price of health capital.
+- $ \delta $: Depreciation rate of health.
 
 To perform comparative static analysis, we differentiate the first-order condition with respect to the parameter of interest (e.g., $ \delta $) and analyze how changes in the parameter affect the optimal value of health capital. This helps understand the sensitivity of health investments to changes in economic conditions or policy interventions.
 
@@ -90,9 +90,9 @@ U = \int_0^T e^{-rt} u(C_t, H_t) \, dt
 $$
 
 Where:
-- **\( u(C_t, H_t) \)**: Instantaneous utility function depending on consumption and health.
-- **\( r \)**: Rate of time preference (discount rate).
-- **\( T \)**: Time horizon of the individual.
+- $ u(C_t, H_t) $: Instantaneous utility function depending on consumption and health.
+- $ r $: Rate of time preference (discount rate).
+- $ T $: Time horizon of the individual.
 
 ### Equation of Motion for Health Capital
 
@@ -103,8 +103,8 @@ $$
 $$
 
 Where:
-- **\( I_t \)**: Investment in health at time $ t $, which can include medical expenses, diet, exercise, etc.
-- **\( \delta \)**: Depreciation rate of health, representing natural health deterioration.
+- $ I_t $: Investment in health at time $ t $, which can include medical expenses, diet, exercise, etc.
+- $ \delta $: Depreciation rate of health, representing natural health deterioration.
 
 ### Budget Constraint
 
@@ -115,8 +115,8 @@ Y_t = C_t + I_t + W_t
 $$
 
 Where:
-- **\( Y_t \)**: Income at time $ t $.
-- **\( W_t \)**: Other expenses unrelated to health and consumption.
+- $ Y_t $: Income at time $ t $.
+- $ W_t $: Other expenses unrelated to health and consumption.
 
 ### Hamiltonian for Optimization
 
@@ -127,7 +127,7 @@ $$
 $$
 
 Where:
-- **\( \lambda_t \)**: Costate variable representing the shadow price of health capital.
+- $ \lambda_t $: Costate variable representing the shadow price of health capital.
 
 ### First-Order Conditions
 
@@ -145,7 +145,7 @@ $$
 
 3. **Costate Equation**: 
 $$
-\frac{d\lambda_t}{dt} = r\lambda_t - rac{\partial \mathcal{H}}{\partial H_t}
+\frac{d\lambda_t}{dt} = r\lambda_t - \frac{\partial \mathcal{H}}{\partial H_t}
 $$
 
 ### Transversality Condition
@@ -169,7 +169,8 @@ To understand the Grossman model visually, I have created an interactive graph t
     <canvas id="grossmanChart"></canvas>
 </div>
 
-### Interactive Graph
+
+
 
 <script>
     const ctx = document.getElementById('grossmanChart').getContext('2d');
@@ -236,7 +237,7 @@ To understand the Grossman model visually, I have created an interactive graph t
     }
 </script>
 
-### Interactive Graph: Utility vs Health Capital
+## Utility vs Health Capital
 
 To further enhance understanding, I have added an interactive graph that explores the relationship between health capital and utility over time. This graph allows users to visualize how different levels of health investment and depreciation rates affect the utility derived from health.
 
