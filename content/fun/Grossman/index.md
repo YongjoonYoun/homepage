@@ -48,68 +48,19 @@ Where:
 
 ### Production Possibility Frontier (PPF) in the Grossman Model
 
-The Production Possibility Frontier (PPF) in the Grossman model represents the trade-offs between health and other goods that an individual can produce given limited resources, such as time and money. The PPF is often depicted as a half-circle, showing the non-linear relationship between these two goods. To help visualize this concept, the graph shows why the PPF takes a half-circle shape. To spend time other than being sick, one needs to have certain level of health condition, which makes sense in the real world. 
+The Production Possibility Frontier (PPF) in the Grossman model represents the trade-offs between health and other goods that an individual can produce given limited resources, such as time and money. The PPF is often depicted as a half-circle, showing the fact that to spend time other than being sick on the bed, one needs to have certain level of health condition (here that point was set at 0), which makes sense in the real world. Moving to the left of the 0 means the PPF curves go down until death (where the value of Y-axis touches 0).  
 
 <div>
+    <label for="maxHealthPPF">Max Health:</label>
+    <input type="range" id="maxHealthPPF" min="50" max="200" step="10" value="100" onchange="updatePPFChart()">
+    <label id="maxHealthPPFValue">100</label>
+    <br>
     <canvas id="ppfChart"></canvas>
 </div>
 
 <script>
     const ctxPPF = document.getElementById('ppfChart').getContext('2d');
-    const ppfChart = new Chart(ctxPPF, {
-        type: 'line',
-        data: {
-            labels: Array.from({length: 101}, (_, i) => i),
-            datasets: [
-                {
-                    label: 'Production Possibility Frontier (PPF)',
-                    data: generatePPFData(100),
-                    borderColor: 'rgba(54, 162, 235, 1)',
-                    borderWidth: 2,
-                    fill: false
-                }
-            ]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                x: {
-                    title: {
-                        display: true,
-                        text: 'Health (Units)'
-                    },
-                    min: 0,
-                    max: 100
-                },
-                y: {
-                    title: {
-                        display: true,
-                        text: 'Other Goods (Units)'
-                    },
-                    min: 0,
-                    max: 100
-                }
-            },
-            interaction: {
-                mode: 'index',
-                intersect: false
-            },
-            plugins: {
-                tooltip: {
-                    callbacks: {
-                        label: function(context) {
-                            let label = context.dataset.label || '';
-                            if (label) {
-                                label += ': ';
-                            }
-                            label += Math.round(context.raw * 100) / 100;
-                            return label;
-                        }
-                    }
-                }
-            }
-        }
-    });
+    let ppfChart;
 
     function generatePPFData(maxHealth) {
         let data = [];
@@ -119,6 +70,72 @@ The Production Possibility Frontier (PPF) in the Grossman model represents the t
         }
         return data;
     }
+
+    function updatePPFChart() {
+        const maxHealth = parseFloat(document.getElementById('maxHealthPPF').value);
+        document.getElementById('maxHealthPPFValue').innerText = maxHealth;
+
+        const data = generatePPFData(maxHealth);
+        ppfChart.data.datasets[0].data = data;
+        ppfChart.update();
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        ppfChart = new Chart(ctxPPF, {
+            type: 'line',
+            data: {
+                labels: Array.from({length: 101}, (_, i) => i),
+                datasets: [
+                    {
+                        label: 'Production Possibility Frontier (PPF)',
+                        data: generatePPFData(100),
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 2,
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Health (Units)'
+                        },
+                        min: 0,
+                        max: 100
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Other Goods (Units)'
+                        },
+                        min: 0,
+                        max: 100
+                    }
+                },
+                interaction: {
+                    mode: 'index',
+                    intersect: false
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                label += Math.round(context.raw * 100) / 100;
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    });
 </script>
 
 ### Optimization Problem
@@ -239,63 +256,20 @@ For a more detailed explanation and rigorous derivation, refer to **Chapter 7** 
 To understand the Grossman model visually, I have created an interactive graph that lets you explore how various factors influence health outcomes over time. Feel free to interact with the sliders and visualize the relationships between health capital, investment in health, depreciation, and more.
 
 <div>
+    <label for="depreciationRate">Depreciation Rate:</label>
+    <input type="range" id="depreciationRate" min="0" max="0.2" step="0.01" value="0.05" onchange="updateGrossmanChart()">
+    <label id="depreciationRateValue">0.05</label>
+    <br>
+    <label for="investmentRate">Investment Rate:</label>
+    <input type="range" id="investmentRate" min="0" max="1" step="0.05" value="0.1" onchange="updateGrossmanChart()">
+    <label id="investmentRateValue">0.1</label>
+    <br>
     <canvas id="grossmanChart"></canvas>
 </div>
 
-
 <script>
     const ctx = document.getElementById('grossmanChart').getContext('2d');
-    const grossmanChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: Array.from({length: 20}, (_, i) => `Year ${i+1}`),
-            datasets: [
-                {
-                    label: 'Health Capital',
-                    data: generateHealthData(20, 100, 0.05, 0.1),
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 2,
-                    fill: false
-                }
-            ]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                x: {
-                    title: {
-                        display: true,
-                        text: 'Time (Years)'
-                    }
-                },
-                y: {
-                    title: {
-                        display: true,
-                        text: 'Health Capital'
-                    },
-                    min: 0
-                }
-            },
-            interaction: {
-                mode: 'index',
-                intersect: false
-            },
-            plugins: {
-                tooltip: {
-                    callbacks: {
-                        label: function(context) {
-                            let label = context.dataset.label || '';
-                            if (label) {
-                                label += ': ';
-                            }
-                            label += Math.round(context.raw * 100) / 100;
-                            return label;
-                        }
-                    }
-                }
-            }
-        }
-    });
+    let grossmanChart;
 
     function generateHealthData(periods, initialHealth, depreciationRate, investmentRate) {
         let data = [];
@@ -306,6 +280,71 @@ To understand the Grossman model visually, I have created an interactive graph t
         }
         return data;
     }
+
+    function updateGrossmanChart() {
+        const depreciationRate = parseFloat(document.getElementById('depreciationRate').value);
+        const investmentRate = parseFloat(document.getElementById('investmentRate').value);
+        document.getElementById('depreciationRateValue').innerText = depreciationRate;
+        document.getElementById('investmentRateValue').innerText = investmentRate;
+
+        const data = generateHealthData(20, 100, depreciationRate, investmentRate);
+        grossmanChart.data.datasets[0].data = data;
+        grossmanChart.update();
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        grossmanChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: Array.from({length: 20}, (_, i) => `Year ${i + 1}`),
+                datasets: [
+                    {
+                        label: 'Health Capital',
+                        data: generateHealthData(20, 100, 0.05, 0.1),
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 2,
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Time (Years)'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Health Capital'
+                        },
+                        min: 0
+                    }
+                },
+                interaction: {
+                    mode: 'index',
+                    intersect: false
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                label += Math.round(context.raw * 100) / 100;
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    });
 </script>
 
 ## Utility vs Health Capital
@@ -313,62 +352,20 @@ To understand the Grossman model visually, I have created an interactive graph t
 To further enhance understanding, I have added an interactive graph that explores the relationship between health capital and utility over time. This graph allows users to visualize how different levels of health investment and depreciation rates affect the utility derived from health.
 
 <div>
+    <label for="depreciationRateUtility">Depreciation Rate:</label>
+    <input type="range" id="depreciationRateUtility" min="0" max="0.2" step="0.01" value="0.05" onchange="updateUtilityChart()">
+    <label id="depreciationRateUtilityValue">0.05</label>
+    <br>
+    <label for="investmentRateUtility">Investment Rate:</label>
+    <input type="range" id="investmentRateUtility" min="0" max="1" step="0.05" value="0.1" onchange="updateUtilityChart()">
+    <label id="investmentRateUtilityValue">0.1</label>
+    <br>
     <canvas id="utilityChart"></canvas>
 </div>
 
 <script>
     const ctxUtility = document.getElementById('utilityChart').getContext('2d');
-    const utilityChart = new Chart(ctxUtility, {
-        type: 'line',
-        data: {
-            labels: Array.from({length: 20}, (_, i) => `Year ${i+1}`),
-            datasets: [
-                {
-                    label: 'Utility Derived from Health',
-                    data: generateUtilityData(20, 100, 0.05, 0.1),
-                    borderColor: 'rgba(255, 99, 132, 1)',
-                    borderWidth: 2,
-                    fill: false
-                }
-            ]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                x: {
-                    title: {
-                        display: true,
-                        text: 'Time (Years)'
-                    }
-                },
-                y: {
-                    title: {
-                        display: true,
-                        text: 'Utility'
-                    },
-                    min: 0
-                }
-            },
-            interaction: {
-                mode: 'index',
-                intersect: false
-            },
-            plugins: {
-                tooltip: {
-                    callbacks: {
-                        label: function(context) {
-                            let label = context.dataset.label || '';
-                            if (label) {
-                                label += ': ';
-                            }
-                            label += Math.round(context.raw * 100) / 100;
-                            return label;
-                        }
-                    }
-                }
-            }
-        }
-    });
+    let utilityChart;
 
     function generateUtilityData(periods, initialHealth, depreciationRate, investmentRate) {
         let data = [];
@@ -380,6 +377,71 @@ To further enhance understanding, I have added an interactive graph that explore
         }
         return data;
     }
+
+    function updateUtilityChart() {
+        const depreciationRate = parseFloat(document.getElementById('depreciationRateUtility').value);
+        const investmentRate = parseFloat(document.getElementById('investmentRateUtility').value);
+        document.getElementById('depreciationRateUtilityValue').innerText = depreciationRate;
+        document.getElementById('investmentRateUtilityValue').innerText = investmentRate;
+
+        const data = generateUtilityData(20, 100, depreciationRate, investmentRate);
+        utilityChart.data.datasets[0].data = data;
+        utilityChart.update();
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        utilityChart = new Chart(ctxUtility, {
+            type: 'line',
+            data: {
+                labels: Array.from({length: 20}, (_, i) => `Year ${i + 1}`),
+                datasets: [
+                    {
+                        label: 'Utility Derived from Health',
+                        data: generateUtilityData(20, 100, 0.05, 0.1),
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 2,
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Time (Years)'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Utility'
+                        },
+                        min: 0
+                    }
+                },
+                interaction: {
+                    mode: 'index',
+                    intersect: false
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                label += Math.round(context.raw * 100) / 100;
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    });
 </script>
 
 ## Applications of the Grossman Model
