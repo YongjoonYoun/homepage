@@ -47,6 +47,81 @@ Where:
 - $ Y_t $: Income at time $ t $.
 - $ W_t $: Other non-health-related expenses.
 
+### Production Possibility Frontier (PPF) in the Grossman Model
+
+The Production Possibility Frontier (PPF) in the Grossman model represents the trade-offs between health and other goods that an individual can produce given limited resources, such as time and money. The PPF is often depicted as a half-circle, showing the non-linear relationship between these two goods. To help visualize this concept, the graph shows why the PPF takes a half-circle shape. To spend time other than being sick, one needs to have certain level of health condition, which makes sense in the real world. 
+
+<div>
+    <canvas id="ppfChart"></canvas>
+</div>
+
+<script>
+    const ctxPPF = document.getElementById('ppfChart').getContext('2d');
+    const ppfChart = new Chart(ctxPPF, {
+        type: 'line',
+        data: {
+            labels: Array.from({length: 101}, (_, i) => i),
+            datasets: [
+                {
+                    label: 'Production Possibility Frontier (PPF)',
+                    data: generatePPFData(100),
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 2,
+                    fill: false
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Health (Units)'
+                    },
+                    min: 0,
+                    max: 100
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Other Goods (Units)'
+                    },
+                    min: 0,
+                    max: 100
+                }
+            },
+            interaction: {
+                mode: 'index',
+                intersect: false
+            },
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            let label = context.dataset.label || '';
+                            if (label) {
+                                label += ': ';
+                            }
+                            label += Math.round(context.raw * 100) / 100;
+                            return label;
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    function generatePPFData(maxHealth) {
+        let data = [];
+        for (let health = 0; health <= maxHealth; health++) {
+            let otherGoods = Math.sqrt(maxHealth ** 2 - health ** 2); // Half-circle equation for PPF
+            data.push(otherGoods);
+        }
+        return data;
+    }
+</script>
+
 ### Optimization Problem
 
 The individual's objective is to choose the optimal path of consumption $ C_t $ and investment in health $ I_t $ that maximizes lifetime utility, subject to the health capital equation of motion and budget constraint. The optimization problem is typically solved using dynamic programming or calculus of variations.
@@ -158,8 +233,7 @@ $$
 
 These equations describe the optimal path of consumption, investment in health, and the evolution of health capital over time.
 
-For a more detailed explanation and rigorous derivation, refer to **Chapter 7** of "Health Economics" by Charles E. Phelps, which provides a comprehensive treatment of the Grossman model in both basic and extended forms. You may also refer to the paper:
-- Grossman, M. (2000). "The Human Capital Model." *Handbook of Health Economics*, Volume 1, Elsevier.
+For a more detailed explanation and rigorous derivation, refer to **Chapter 7** of "Health Economics" by Charles E. Phelps, which provides a comprehensive treatment of the Grossman model in both basic and extended forms. 
 
 ## Understanding the Dynamics
 
@@ -168,8 +242,6 @@ To understand the Grossman model visually, I have created an interactive graph t
 <div>
     <canvas id="grossmanChart"></canvas>
 </div>
-
-
 
 
 <script>
@@ -311,25 +383,6 @@ To further enhance understanding, I have added an interactive graph that explore
     }
 </script>
 
-### Adjust Parameters for Advanced Graph
-
-Use the sliders below to adjust the depreciation rate and investment rate for the advanced interactive graph.
-
-<input type="range" id="depreciationRateAdv" min="0" max="0.2" step="0.01" value="0.05" onchange="updateAdvancedGraph()">
-<label for="depreciationRateAdv">Depreciation Rate</label><br>
-
-<input type="range" id="investmentRateAdv" min="0" max="1" step="0.05" value="0.1" onchange="updateAdvancedGraph()">
-<label for="investmentRateAdv">Investment Rate</label><br>
-
-<script>
-    function updateAdvancedGraph() {
-        const depreciationRateAdv = parseFloat(document.getElementById('depreciationRateAdv').value);
-        const investmentRateAdv = parseFloat(document.getElementById('investmentRateAdv').value);
-        utilityChart.data.datasets[0].data = generateUtilityData(20, 100, depreciationRateAdv, investmentRateAdv);
-        utilityChart.update();
-    }
-</script>
-
 ## Applications of the Grossman Model
 
 One interesting application of the Grossman model is understanding the impact of public health interventions on long-term health capital. For example, consider a government initiative that provides free gym memberships to citizens. This intervention can be modeled as an increase in the investment rate in health. By adjusting the investment rate in the interactive graph, you can visualize how an increase in investment (such as access to exercise facilities) can lead to improved health outcomes over time.
@@ -339,7 +392,7 @@ Another application could be analyzing the effects of aging. As individuals age,
 These applications demonstrate how the Grossman model can be used to simulate real-world scenarios and the long-term effects of various factors on health outcomes.
 
 - [Grossman, M. (1972). "On the Concept of Health Capital and the Demand for Health." *Journal of Political Economy*.](https://www.journals.uchicago.edu/doi/10.1086/259880)
-- [Grossman, M. (2000). "The Human Capital Model." *Handbook of Health Economics*, Volume 1, Elsevier.]
-- [Phelps, C. E. (2017). *Health Economics*, 5th Edition, Routledge.]
+- Grossman, M. (2000). "The Human Capital Model." *Handbook of Health Economics*, Volume 1, Elsevier.
+- Phelps, C. E. (2017). *Health Economics*, 5th Edition, Routledge.
 
 ---
