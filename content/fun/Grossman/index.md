@@ -49,7 +49,13 @@ Where:
 
 ### Production Possibility Frontier (PPF) in the Grossman Model
 
-The Production Possibility Frontier (PPF) in the Grossman model represents the trade-offs between health and other goods that an individual can produce given limited resources, such as time and money. The PPF is often depicted as a half-circle, showing the fact that to spend time other than being sick on the bed, one needs to have certain level of health condition (here that point was set at 0), which makes sense in the real world. Moving to the left of the 0 means the PPF curves go down until death (where the value of Y-axis touches 0).  
+In the Grossman model, the Production Possibility Frontier (PPF) illustrates the trade-off between health and other goods that an individual can produce with limited resources like time and money. The PPF is typically depicted as a semi-circle, where moving right from the zero point (maximum health) represents investing more in health, allowing for reduced time spent being sick but at the cost of producing fewer other goods. As health improves, more resources are devoted to maintaining it, reflecting diminishing returns-additional health improvements yield less benefit relative to the resources invested. Moving left of zero, health deteriorates, resulting in less time available for other productive activities, and eventually leads to death when the Y-axis reaches zero. This captures the real-world trade-off between health maintenance and the consumption or production of other goods as health status fluctuates.
+
+
+
+
+
+
 
 <div>
     <label for="maxHealthPPF">Max Health:</label>
