@@ -15,7 +15,7 @@ The Grossman model is a foundational theory in health economics that conceptuali
 The generic Grossman model is based on an individual's decision to invest in health to maximize their lifetime utility. The utility function is typically a function of both consumption $ C_t $ and health capital $ H_t $, given as:
 
 $$
-U = \int_0^T e^{-rt} u(C_t, H_t) \, dt
+U = \int_0^T e^{-rt} u(C_t, H_t) dt
 $$
 
 Where:
@@ -23,17 +23,7 @@ Where:
 - $ r $: Rate of time preference (discount rate).
 - $ T $: Time horizon of the individual.
 
-### Health Capital Accumulation
 
-The health capital $ H_t$  follows an equation of motion that takes into account investments in health $ I_t $ and a depreciation rate $ \delta $:
-
-$$
-\frac{dH_t}{dt} = I_t - \delta H_t
-$$
-
-Where:
-- $ I_t $: Investment in health, which can include expenditures on medical care, exercise, diet, etc.
-- $ \delta $: Depreciation rate of health capital, representing natural deterioration of health.
 
 ### Budget Constraint
 
@@ -142,20 +132,6 @@ In the Grossman model, the Production Possibility Frontier (PPF) illustrates the
 
 The individual's objective is to choose the optimal path of consumption $ C_t $ and investment in health $ I_t $ that maximizes lifetime utility, subject to the health capital equation of motion and budget constraint. The optimization problem is typically solved using dynamic programming or calculus of variations.
 
-### Hamiltonian for Optimization
-
-To solve this optimization problem, the Hamiltonian $ \mathcal{H} $ is formulated as follows:
-
-$$
-\mathcal{H} = e^{-rt} u(C_t, H_t) + \lambda_t (I_t - \delta H_t)
-$$
-
-Where:
-- $ \lambda_t $: Costate variable representing the shadow price of health capital.
-
-The Hamiltonian captures both the current utility and the value of changes in health capital over time.
-
-The Grossman model can be extended to a form incorporating both dynamic optimization and multiple constraints. 
 
 ### Comparative Static Analysis
 
@@ -172,22 +148,24 @@ Where:
 
 To perform comparative static analysis, we differentiate the first-order condition with respect to the parameter of interest (e.g., $ \delta $) and analyze how changes in the parameter affect the optimal value of health capital. This helps understand the sensitivity of health investments to changes in economic conditions or policy interventions.
 
-### Dynamic Optimization Problem
+### Hamiltonian for Dynamic Optimization
 
-The individual maximizes their lifetime utility, $ U $, which is a function of both consumption $ C_t $ and health capital $ H_t $ over time. The utility function is given by:
+To solve this optimization problem, the Hamiltonian $ \mathcal{H} $ is formulated as follows:
 
 $$
-U = \int_0^T e^{-rt} u(C_t, H_t) \, dt
+\mathcal{H} = e^{-rt} u(C_t, H_t) + \lambda_t (I_t - \delta H_t)
 $$
 
 Where:
-- $ u(C_t, H_t) $: Instantaneous utility function depending on consumption and health.
-- $ r $: Rate of time preference (discount rate).
-- $ T $: Time horizon of the individual.
+- $ \lambda_t $: Costate variable representing the shadow price of health capital.
+
+The Hamiltonian captures both the current utility and the value of changes in health capital over time.
+
+The Grossman model can be extended to a form incorporating both dynamic optimization and multiple constraints. 
+
 
 ### Equation of Motion for Health Capital
-
-The evolution of health capital $ H_t $ is represented by the differential equation:
+The health capital $ H_t$  follows an equation of motion that takes into account investments in health $ I_t $ and a depreciation rate $ \delta $. The evolution of health capital $ H_t $ is represented by the differential equation:
 
 $$
 \frac{dH_t}{dt} = I_t - \delta H_t
@@ -196,29 +174,6 @@ $$
 Where:
 - $ I_t $: Investment in health at time $ t $, which can include medical expenses, diet, exercise, etc.
 - $ \delta $: Depreciation rate of health, representing natural health deterioration.
-
-### Budget Constraint
-
-The individual faces a budget constraint that links income, consumption, and investment in health:
-
-$$
-Y_t = C_t + I_t + W_t
-$$
-
-Where:
-- $ Y_t $: Income at time $ t $.
-- $ W_t $: Other expenses unrelated to health and consumption.
-
-### Hamiltonian for Optimization
-
-To solve the dynamic optimization problem, we set up the Hamiltonian $ \mathcal{H} $ for the maximization of lifetime utility subject to the health capital equation of motion:
-
-$$
-\mathcal{H} = e^{-rt} u(C_t, H_t) + \lambda_t (I_t - \delta H_t)
-$$
-
-Where:
-- $ \lambda_t $: Costate variable representing the shadow price of health capital.
 
 ### First-Order Conditions
 
@@ -248,8 +203,6 @@ $$
 $$
 
 These equations describe the optimal path of consumption, investment in health, and the evolution of health capital over time.
-
-For a more detailed explanation and rigorous derivation, refer to **Chapter 7** of "Health Economics" by Charles E. Phelps, which provides a comprehensive treatment of the Grossman model in both basic and extended forms. 
 
 ## Understanding the Dynamics
 
@@ -454,6 +407,5 @@ These applications demonstrate how the Grossman model can be used to simulate re
 
 - [Grossman, M. (1972). "On the Concept of Health Capital and the Demand for Health." *Journal of Political Economy*.](https://www.journals.uchicago.edu/doi/10.1086/259880)
 - Grossman, M. (2000). "The Human Capital Model." *Handbook of Health Economics*, Volume 1, Elsevier.
-- Phelps, C. E. (2017). *Health Economics*, 5th Edition, Routledge.
 
 ---
